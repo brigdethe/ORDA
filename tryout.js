@@ -62,111 +62,7 @@
   if (!window.gsap) return;
   gsap.registerPlugin(ScrollTrigger);
 
-  const pill = section.querySelector('.pill');
-  const title = section.querySelector('.section-title');
-  const sub = section.querySelector('.section-sub');
-  const grid = section.querySelector('.features-grid');
-  const featureCards = grid ? Array.from(grid.querySelectorAll('.feature-card')) : [];
-
-  // Intro text animation
-  if (pill || title || sub) {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 80%',
-        end: 'top 20%',
-        toggleActions: 'play none none reverse'
-      }
-    });
-
-    if (pill) tl.from(pill, { y: 24, opacity: 0, duration: 0.5, ease: 'power3.out' });
-    if (title) tl.from(title, { y: 28, opacity: 0, duration: 0.6, ease: 'power3.out' }, '-=0.2');
-    if (sub) tl.from(sub, { y: 20, opacity: 0, duration: 0.5, ease: 'power3.out' }, '-=0.25');
-  }
-
-  // Cards entrance animation
-  if (featureCards.length) {
-    gsap.set(featureCards, { transformPerspective: 800, transformOrigin: '50% 60%' });
-    gsap.from(featureCards, {
-      opacity: 0,
-      y: 80,
-      rotateX: -18,
-      rotateY: 8,
-      scale: 0.94,
-      filter: 'blur(4px)',
-      duration: 0.9,
-      ease: 'expo.out',
-      stagger: 0.12,
-      scrollTrigger: {
-        trigger: grid,
-        start: 'top 75%',
-        toggleActions: 'play none none reverse'
-      }
-    });
-
-    // Parallax on icons inside cards during scroll
-    featureCards.forEach((card) => {
-      const icon = card.querySelector('.feature-icon');
-      if (!icon) return;
-      gsap.fromTo(icon, { y: 0 }, {
-        y: -10,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    });
-
-    // Reveal inner content per card
-    featureCards.forEach((card) => {
-      const titleEl = card.querySelector('.feature-title');
-      const descEl = card.querySelector('.feature-desc');
-      const points = Array.from(card.querySelectorAll('.feature-points li'));
-      const cta = card.querySelector('.feature-cta');
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: card,
-          start: 'top 78%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-
-      if (titleEl) tl.from(titleEl, { y: 16, opacity: 0, duration: 0.35, ease: 'power2.out' });
-      if (descEl) tl.from(descEl, { y: 14, opacity: 0, duration: 0.35, ease: 'power2.out' }, '-=0.1');
-      if (points.length) tl.from(points, { y: 10, opacity: 0, duration: 0.25, stagger: 0.08, ease: 'power2.out' }, '-=0.05');
-      if (cta) tl.from(cta, { y: 10, opacity: 0, duration: 0.3, ease: 'power2.out' }, '-=0.05');
-    });
-
-    // Hover tilt interaction
-    featureCards.forEach((card) => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const relX = (e.clientX - rect.left) / rect.width - 0.5;
-        const relY = (e.clientY - rect.top) / rect.height - 0.5;
-        gsap.to(card, {
-          rotateY: relX * 8,
-          rotateX: -relY * 8,
-          translateZ: 0,
-          boxShadow: '0 18px 40px rgba(13,23,54,0.14)',
-          duration: 0.3,
-          ease: 'power2.out'
-        });
-      });
-      card.addEventListener('mouseleave', () => {
-        gsap.to(card, {
-          rotateX: 0,
-          rotateY: 0,
-          boxShadow: '0 10px 24px rgba(0,0,0,0.06)',
-          duration: 0.5,
-          ease: 'power3.out'
-        });
-      });
-    });
-  }
+  // Removed GSAP scroll-in animations for features section content (intro, cards, parallax, reveals, hover tilt)
 
   // Features/services carousel (GSAP-driven)
   const carouselRoot = document.querySelector('.features-carousel');
@@ -483,12 +379,109 @@
       stop();
       start();
     });
-    root.addEventListener('mouseenter', stop);
-    root.addEventListener('mouseleave', start);
-    root.addEventListener('focusin', stop);
-    root.addEventListener('focusout', start);
+          root.addEventListener('mouseenter', stop);
+      root.addEventListener('mouseleave', start);
+      root.addEventListener('focusin', stop);
+      root.addEventListener('focusout', start);
 
-    // Start when in view
+      // Swipe/drag gesture support to navigate slides
+      (function initSwipe() {
+        const swipeThresholdPx = 40;
+        const quickSwipeTimeMs = 250;
+        const rootEl = root;
+
+        if ('PointerEvent' in window) {
+          let isPointerDown = false;
+          let startX = 0;
+          let startY = 0;
+          let isHorizontal = null;
+          let pointerId = null;
+          let startTime = 0;
+
+          rootEl.addEventListener('pointerdown', (e) => {
+            if (e.pointerType === 'mouse' && e.button !== 0) return;
+            isPointerDown = true;
+            pointerId = e.pointerId;
+            startX = e.clientX;
+            startY = e.clientY;
+            isHorizontal = null;
+            startTime = performance.now();
+            stop();
+            try { rootEl.setPointerCapture(pointerId); } catch (_) {}
+          });
+
+          rootEl.addEventListener('pointermove', (e) => {
+            if (!isPointerDown) return;
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            if (isHorizontal === null) {
+              if (Math.abs(dx) > 8 || Math.abs(dy) > 8) {
+                isHorizontal = Math.abs(dx) >= Math.abs(dy);
+              }
+            }
+            if (isHorizontal) {
+              e.preventDefault();
+            }
+          }, { passive: false });
+
+          const endPointer = (e) => {
+            if (!isPointerDown) return;
+            isPointerDown = false;
+            try { rootEl.releasePointerCapture(pointerId); } catch (_) {}
+            const dx = e.clientX - startX;
+            const dy = e.clientY - startY;
+            const elapsed = performance.now() - startTime;
+            const horizontalSwipe = (Math.abs(dx) > swipeThresholdPx && Math.abs(dx) > Math.abs(dy)) || (elapsed < quickSwipeTimeMs && Math.abs(dx) > 20);
+            if (isHorizontal && horizontalSwipe) {
+              if (dx < 0) goTo((index + 1) % slides.length);
+              else goTo((index - 1 + slides.length) % slides.length);
+            } else {
+              start();
+            }
+          };
+
+          rootEl.addEventListener('pointerup', endPointer);
+          rootEl.addEventListener('pointercancel', () => { isPointerDown = false; start(); });
+        } else {
+          let startX = 0, startY = 0, startTime = 0, dragging = false;
+          rootEl.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 1) return;
+            const t = e.touches[0];
+            startX = t.clientX; startY = t.clientY; startTime = performance.now();
+            dragging = true;
+            stop();
+          }, { passive: true });
+
+          rootEl.addEventListener('touchmove', (e) => {
+            if (!dragging) return;
+            const t = e.touches[0];
+            const dx = t.clientX - startX;
+            const dy = t.clientY - startY;
+            if (Math.abs(dx) > Math.abs(dy)) e.preventDefault();
+          }, { passive: false });
+
+          const handleTouchEnd = (e) => {
+            if (!dragging) return;
+            dragging = false;
+            const t = e.changedTouches[0];
+            const dx = t.clientX - startX;
+            const dy = t.clientY - startY;
+            const elapsed = performance.now() - startTime;
+            const horizontalSwipe = (Math.abs(dx) > swipeThresholdPx && Math.abs(dx) > Math.abs(dy)) || (elapsed < quickSwipeTimeMs && Math.abs(dx) > 20);
+            if (horizontalSwipe) {
+              if (dx < 0) goTo((index + 1) % slides.length);
+              else goTo((index - 1 + slides.length) % slides.length);
+            } else {
+              start();
+            }
+          };
+
+          rootEl.addEventListener('touchend', handleTouchEnd, { passive: true });
+          rootEl.addEventListener('touchcancel', () => { dragging = false; start(); }, { passive: true });
+        }
+      })();
+
+      // Start when in view
     if (window.gsap && window.ScrollTrigger) {
       ScrollTrigger.create({
         trigger: root,
@@ -504,23 +497,6 @@
     }
   })();
 
-  const mapBlock = document.querySelector('.features-map .map-img');
-  const mapWrap = document.querySelector('.features-map');
-  if (mapBlock && mapWrap) {
-    gsap.set(mapBlock, { scale: 0.9, filter: 'blur(2px)', opacity: 0.9 });
-    gsap.to(mapBlock, {
-      scale: 1,
-      filter: 'blur(0px)',
-      opacity: 1,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: mapWrap,
-        start: 'top bottom',
-        end: 'center center',
-        scrub: true
-      }
-    });
-  }
 })(); 
 
 // FAQ accordion (progressively enhanced)
@@ -559,93 +535,6 @@
   });
 })();
 
-// Waitlist animations (GSAP)
-(function () {
-  if (typeof window === 'undefined' || !window.gsap) return;
-  const section = document.querySelector('.waitlist-section');
-  if (!section) return;
-
-  const cards = Array.from(section.querySelectorAll('.wl-card'));
-  const title = section.querySelector('.waitlist-title, .inquiry-title');
-  gsap.registerPlugin(ScrollTrigger);
-
-  if (title) {
-    gsap.from(title, {
-      y: 24,
-      opacity: 0,
-      duration: 0.6,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 80%',
-      }
-    });
-  }
-
-  if (cards.length) {
-    gsap.from(cards, {
-      y: 40,
-      opacity: 0,
-      rotateX: -10,
-      duration: 0.7,
-      ease: 'power3.out',
-      stagger: 0.12,
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 75%'
-      }
-    });
-
-    // subtle parallax on icons
-    cards.forEach((card) => {
-      const icon = card.querySelector('.wl-icon');
-      if (!icon) return;
-      gsap.fromTo(icon, { y: 0 }, {
-        y: -8,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: card,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: true
-        }
-      });
-    });
-  }
-  // Form fields reveal
-  const form = section.querySelector('.inq-form');
-  if (form) {
-    const fields = Array.from(form.querySelectorAll('.field, .form-row, textarea'));
-    gsap.from(fields, {
-      y: 18,
-      opacity: 0,
-      duration: 0.5,
-      stagger: 0.06,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: form,
-        start: 'top 85%'
-      }
-    });
-  }
-
-  // Phone mockup float-in
-  const phone = section.querySelector('.phone-frame');
-  if (phone) {
-    gsap.from(phone, {
-      x: 40,
-      y: 20,
-      opacity: 0,
-      rotate: -2,
-      duration: 0.8,
-      ease: 'power3.out',
-      scrollTrigger: {
-        trigger: phone,
-        start: 'top 85%'
-      }
-    });
-  }
-})();
 
 // Testimonials modal viewer
 (function () {
@@ -787,78 +676,3 @@
   tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.key)));
 })();
 
-// Global appear-on-scroll animations
-(function () {
-  if (typeof window === 'undefined' || !window.gsap) return;
-  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReduced) return;
-  gsap.registerPlugin(ScrollTrigger);
-
-  const fadeUpEach = (selector, opts = {}) => {
-    gsap.utils.toArray(selector).forEach((el) => {
-      gsap.from(el, {
-        y: opts.y ?? 24,
-        opacity: 0,
-        duration: opts.duration ?? 0.6,
-        ease: opts.ease ?? 'power3.out',
-        clearProps: 'transform,opacity',
-        scrollTrigger: {
-          trigger: el,
-          start: opts.start ?? 'top 85%',
-          toggleActions: 'play none none reverse'
-        }
-      });
-    });
-  };
-
-  // Mission section
-  fadeUpEach('#mission .pill, #mission .section-title, #mission .mission-cta', { y: 26 });
-  // Mission gallery cards (stagger per row)
-  (function () {
-    const cards = gsap.utils.toArray('#mission .flex-gallery .card');
-    if (cards.length) {
-      gsap.from(cards, {
-        y: 30,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.08,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '#mission .flex-gallery', start: 'top 80%', toggleActions: 'play none none reverse' },
-        immediateRender: false
-      });
-    }
-  })();
-
-  // Features split
-  fadeUpEach('#services .fs-left .fs-tab', { x: -18, y: 0, duration: 0.5 });
-  fadeUpEach('#services .fs-right .fs-bubble', { y: 20, duration: 0.5 });
-
-  // Earn subsections: titles, cards, benefits, CTA
-  fadeUpEach('.earn-section .earn-content .pill, .earn-section .earn-content .section-title', { y: 20 });
-  fadeUpEach('.rfu .rfu-title', { y: 20 });
-  fadeUpEach('.rfu .rfu-card', { y: 24 });
-  (function () {
-    const benefits = gsap.utils.toArray('.rfu .rfu-benefits .benefit');
-    if (benefits.length) {
-      gsap.from(benefits, {
-        y: 16,
-        opacity: 0,
-        duration: 0.45,
-        stagger: 0.06,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: benefits[0].closest('.rfu'), start: 'top 75%' }
-      });
-    }
-  })();
-  fadeUpEach('.rfu .rfu-cta', { y: 18, duration: 0.45 });
-
-  // Testimonials
-  fadeUpEach('#testimonials .testimonials-header', { y: 20 });
-  fadeUpEach('.testimonials-gallery', { y: 20, duration: 0.6 });
-
-  // End hero
-  fadeUpEach('.end-section .end-content', { y: 20, duration: 0.6 });
-
-  // Footer
-  fadeUpEach('.site-footer .footer-top, .site-footer .footer-bottom', { y: 18, duration: 0.5 });
-})();
