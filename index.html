@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ORDA Rides – Ride-Sharing App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tryout.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='56' ry='56' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' dominant-baseline='middle' font-family='Plus Jakarta Sans, Arial, sans-serif' font-size='168' font-weight='800' fill='%23ffffff'%3EO%3C/text%3E%3C/svg%3E" />
+
+</head>
+<body>
+  
+  <section id="home" class="landing-section" aria-label="Highlights">
+    <div class="landing-carousel" role="group" aria-roledescription="carousel" aria-label="Landing promotions" aria-live="polite">
+      <div class="landing-track">
+        <article class="landing-slide is-active" style="background-image:url('../images/main.png')" aria-label="Get paid as you work">
+          <div class="landing-overlay"></div>
+          <div class="landing-content">
+            <h2 class="landing-title">Ride Anywhere, Anytime, with ORDA Rides</h2>
+            <p class="landing-sub">Enjoy afforable, safe and premium transportation service</p>
+            <a href="#get-started" class="btn btn-primary landing-cta">Get started</a>
+          </div>
+        </article>
+
+        <article class="landing-slide" style="background-image:url('../images/orda/biker.jpg')" aria-label="Safe, affordable rides">
+          <div class="landing-overlay"></div>
+          <div class="landing-content">
+            <h2 class="landing-title">Safe, affordable rides in your community</h2>
+            <p class="landing-sub">Upfront pricing and real‑time tracking</p>
+            <a href="#rides" class="btn btn-primary landing-cta">Book a ride</a>
+          </div>
+        </article>
+
+        <article class="landing-slide" style="background-image:url('../images/orda/market.jpeg')" aria-label="Fast local delivery">
+          <div class="landing-overlay"></div>
+          <div class="landing-content">
+            <h2 class="landing-title">Deliver anything — fast</h2>
+            <p class="landing-sub">Verified riders with OTP handoff</p>
+            <a href="#delivery" class="btn btn-primary landing-cta">Send a package</a>
+          </div>
+        </article>
+
+        <article class="landing-slide" style="background-image:url('../images/orda/googlemaps.png')" aria-label="Hyper‑local news updates">
+          <div class="landing-overlay"></div>
+          <div class="landing-content">
+            <h2 class="landing-title">Stay ahead with hyper‑local news</h2>
+            <p class="landing-sub">Road closures, market prices, and safety alerts</p>
+            <a href="#news" class="btn btn-primary landing-cta">See local news</a>
+          </div>
+        </article>
+
+        <article class="landing-slide" style="background-image:url('../images/prince.jpg')" aria-label="Join as a driver">
+          <div class="landing-overlay"></div>
+          <div class="landing-content">
+            <h2 class="landing-title">Join ORDA — drive and earn more</h2>
+            <p class="landing-sub">Flexible hours, instant payouts, real support</p>
+            <a href="#apply" class="btn btn-primary landing-cta">Apply to drive</a>
+          </div>
+        </article>
+      </div>
+      <div class="landing-controls">
+        <button class="landing-btn prev" aria-label="Previous slide">
+          <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="landing-dots" role="tablist" aria-label="Slide pagination"></div>
+        <button class="landing-btn next" aria-label="Next slide">
+          <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <header class="site-nav" aria-label="Primary">
+    <div class="nav-container">
+      <a class="nav-brand" href="#home" aria-label="ORDA home">ORDA Rides</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#mission">Mission</a>
+        <a href="#services">Services</a>
+        <a href="#earn">Earn</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#waitlist">Contact</a>
+        <a href="#testimonials">Testimonials</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <a class="store-badge badge-google nav-store" href="#google-play" aria-label="Get it on Google Play">
+        <svg class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#ffffff" d="M3.6 1.8l10.2 10.2L3.6 22.2c-.23-.15-.36-.41-.36-.71V2.51c0-.3.13-.56.36-.71z"/><path fill="#3ddc84" d="M14.5 12.01l2.41 2.41-9.65 5.58c-.36.21-.79.2-1.13-.02l8.37-7.97z"/><path fill="#f4b400" d="M19.31 9.93l-2.42 2.42L8.12 4.16l5.05-2.92c.38-.22.86-.21 1.24.02l4.9 2.86c.53.31.53 1.08 0 1.39z"/><path fill="#4285f4" d="M21.2 11.98c.3.17.3.61 0 .78l-2.02 1.18-2.42-2.42 2.42-2.42 2.02 1.17z"/></svg>
+        <span class="label"><small>Get it on</small><strong>Google Play</strong></span>
+      </a>
+    </div>
+  </header>
+
+  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <div class="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <button class="mobile-nav-close" aria-label="Close menu" data-close>
+        &times;
+      </button>
+      <nav class="mobile-menu" aria-label="Mobile navigation">
+        <a href="#mission">Mission</a>
+        <a href="#services">Services</a>
+        <a href="#earn">Earn</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#waitlist">Contact</a>
+        <a href="#testimonials">Testimonials</a>
+      </nav>
+      <div class="mobile-store">
+        <a class="store-badge badge-google" href="#google-play" aria-label="Get it on Google Play">
+          <svg class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#ffffff" d="M3.6 1.8l10.2 10.2L3.6 22.2c-.23-.15-.36-.41-.36-.71V2.51c0-.3.13-.56.36-.71z"/><path fill="#3ddc84" d="M14.5 12.01l2.41 2.41-9.65 5.58c-.36.21-.79.2-1.13-.02l8.37-7.97z"/><path fill="#f4b400" d="M19.31 9.93l-2.42 2.42L8.12 4.16l5.05-2.92c.38-.22.86-.21 1.24.02l4.9 2.86c.53.31.53 1.08 0 1.39z"/><path fill="#4285f4" d="M21.2 11.98c.3.17.3.61 0 .78l-2.02 1.18-2.42-2.42 2.42-2.42 2.02 1.17z"/></svg>
+          <span class="label"><small>Get it on</small><strong>Google Play</strong></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section id="mission" class="mission-section" aria-label="Our Mission">
+    <div class="container">
+      <div class="mission-content">
+        <span class="pill">Our Mission</span>
+        <h2 class="section-title">In Ghana’s <span class="hl">rural communities</span>, mobility isn’t just about <span class="hl">convenience</span>—it’s about access to <span class="hl">opportunity</span>, <span class="hl">safety</span>, and <span class="hl">dignity</span>.<br><span class="hl-strong">ORDA RIDES</span> exists to make sure <span class="hl">no one is left behind</span>.</h2>
+        
+        <div class="mission-mobile-image" aria-label="Mission highlight image">
+          <img src="../images/biker.jpg" alt="ORDA Rides mission" />
+        </div>
+        <div class="mission-cta">
+          <a class="btn btn-read-more" href="more.html" aria-label="Read more about our mission">Read More</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-gallery" role="list" aria-label="Mission gallery">
+      <div class="card is-active" role="listitem">
+        <div class="card__inner">
+          <picture>
+            <img src="images/orda/biker.jpg" alt="ORDA rider on a motorbike" />
+          </picture>
+        </div>
+      </div>
+      <div class="card is-active" role="listitem">
+        <div class="card__inner">
+          <picture>
+            <img src="images/orda/makola.jpg" alt="Makola market scene" />
+          </picture>
+        </div>
+      </div>
+      <div class="card is-active" role="listitem">
+        <div class="card__inner">
+          <picture>
+            <img src="images/okada.png" alt="Okada motorbike" />
+          </picture>
+        </div>
+      </div>
+      <div class="card is-active" role="listitem">
+        <div class="card__inner">
+          <picture>
+            <img src="images/orda/market.jpeg" alt="Local market" />
+          </picture>
+        </div>
+      </div>
+      <div class="card is-active" role="listitem">
+        <div class="card__inner">
+          <picture>
+            <img src="images/woman.png" alt="Business owner portrait" />
+          </picture>
+        </div>
+      </div>
+      <div class="card is-active" role="listitem">
+        <div class="card__inner">
+          <picture>
+            <img src="images/orda/googlemaps.png" alt="Map view" />
+          </picture>
+        </div>
+      </div>
+      <div class="card is-active" role="listitem">
+        <div class="card__inner">
+          <picture>
+            <img src="images/prince.jpg" alt="Community member portrait" />
+          </picture>
+        </div>
+      </div>
+      <div class="card is-active" role="listitem">
+        <div class="card__inner">
+          <picture>
+            <img src="images/guy.jpg" alt="Rider portrait" />
+          </picture>
+        </div>
+      </div>
+      <div class="card is-active" role="listitem">
+        <div class="card__inner">
+          <picture>
+            <img src="images/moto.png" alt="Motorbike" />
+          </picture>
+        </div>
+      </div>
+           </div>
+   </section>
+
+   <section id="services" class="features-section" aria-label="Key Features">
+    <div class="container">
+      <div class="features-content">
+        <span class="pill">Our Services</span>
+        <h2 class="section-title">Move faster. Spend less. Stay informed.</h2>
+        <p class="section-sub">Everything you need for safer, smarter rides—plus reliable delivery and hyper‑local news built for your community.</p>
+      </div>
+    </div>
+    <div class="features-split">
+      <div class="fs-left" role="tablist" aria-label="Services tabs">
+        <button type="button" class="fs-tab is-active" role="tab" aria-selected="true" aria-controls="fs-rides" data-key="rides">1. Order Rides</button>
+        <button type="button" class="fs-tab" role="tab" aria-selected="false" aria-controls="fs-delivery" data-key="delivery">2. Get Your Delivery</button>
+        <button type="button" class="fs-tab" role="tab" aria-selected="false" aria-controls="fs-news" data-key="news">3. Stay on Local News</button>
+      </div>
+      <div class="fs-right">
+        <article class="fs-panel is-active" id="fs-rides" role="tabpanel" aria-label="Rides">
+          <div class="fs-bg" style="background-image:url('images/orda/biker.jpg');"></div>
+          <div class="fs-bubble">
+            <strong>Order rides in seconds</strong>
+            <p>Upfront pricing, live tracking, and built‑in safety sharing for peace of mind.</p>
+          </div>
+        </article>
+        <article class="fs-panel" id="fs-delivery" role="tabpanel" aria-label="Delivery">
+          <div class="fs-bg" style="background-image:url('images/okada.png');"></div>
+          <div class="fs-bubble">
+            <strong>Deliver anything — fast</strong>
+            <p>Door‑to‑door parcels with OTP handoff and photo proof.</p>
+          </div>
+        </article>
+        <article class="fs-panel" id="fs-news" role="tabpanel" aria-label="Local News">
+          <div class="fs-bg" style="background-image:url('images/orda/googlemaps.png');"></div> 
+          <div class="fs-bubble">
+            <strong>Stay ahead with local alerts</strong>
+            <p>Road closures, market info, and safety updates tailored to your area.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  <section id="earn" class="earn-section" aria-label="Earn With ORDA">
+    <div class="container earn-header">
+      <div class="earn-content">
+        <span class="pill">Earn With ORDA</span>
+        <h2 class="section-title">Drive, deliver, and grow your income</h2>
+      </div>
+    </div>
+
+    <!-- Ride For Us subsection -->
+    <section class="rfu rfu--rider" aria-label="Ride For Us">
+      <div class="rfu-inner">
+        <h3 class="rfu-title">Become A Rider</h3>
+        <div class="rfu-card">
+          <div class="rfu-quote">
+            <blockquote>
+              <p>“With ORDA, I can plan ahead. I’m not surprised anymore.”</p>
+              <footer>
+                <div class="rfu-person-meta">
+                  <strong>Kweku Prosper</strong>
+                  <span>ORDA Rider</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+          <div class="rfu-person">
+            <img src="../images/okada.png" alt="ORDA rider" />
+          </div>
+        </div>
+
+        <div class="rfu-meta">
+          <ul class="rfu-benefits" aria-label="Benefits of riding with ORDA">
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">✓</span>
+              <div class="benefit-text">
+                <strong class="benefit-title">Instant payouts</strong>
+                <span class="benefit-desc">Cash-out the same day via Mobile Money.</span>
+              </div>
+            </li>
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">✓</span>
+              <div class="benefit-text">
+                <strong class="benefit-title">Your schedule</strong>
+                <span class="benefit-desc">Work when you want with no fixed shifts.</span>
+              </div>
+            </li>
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">✓</span>
+              <div class="benefit-text">
+                <strong class="benefit-title">Safety-first</strong>
+                <span class="benefit-desc">In‑app SOS, rider training, and 24/7 support.</span>
+              </div>
+            </li>
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">✓</span>
+              <div class="benefit-text">
+                <strong class="benefit-title">Boosted earnings</strong>
+                <span class="benefit-desc">Bonuses for peak hours and top ratings.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rfu-cta">
+          <a href="#apply" class="btn btn-dark">Ride For Us</a>
+        </div>
+
+        <div class="rfu-fineprint">
+          <a href="#terms">Terms apply</a>
+          <span aria-hidden="true">·</span>
+          <a href="#faqs">FAQs</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Enlist Your Business subsection (mirrors RFU styles) -->
+    <section class="rfu rfu--business" aria-label="Enlist Your Business">
+      <div class="rfu-inner">
+        <h3 class="rfu-title">Enlist Your Business</h3>
+        <div class="rfu-card">
+          <div class="rfu-quote">
+            <blockquote>
+              <p>“ORDA helps us reach more customers and deliver on time.”</p>
+              <footer>
+                <div class="rfu-person-meta">
+                  <strong>Akosua</strong>
+                  <span>Local merchant</span>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
+          <div class="rfu-person">
+            <img src="../images/woman.png" alt="Business owner" />
+          </div>
+        </div>
+
+        <div class="rfu-meta">
+          <ul class="rfu-benefits" aria-label="Benefits of enlisting your business">
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">✓</span>
+              <div class="benefit-text">
+                <strong class="benefit-title">Grow orders</strong>
+                <span class="benefit-desc">Offer delivery and reach new customers nearby.</span>
+              </div>
+            </li>
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">✓</span>
+              <div class="benefit-text">
+                <strong class="benefit-title">Fast payouts</strong>
+                <span class="benefit-desc">Same‑day settlements to your Mobile Money wallet.</span>
+              </div>
+            </li>
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">✓</span>
+              <div class="benefit-text">
+                <strong class="benefit-title">Smart tools</strong>
+                <span class="benefit-desc">Dashboard to track sales, deliveries, and performance.</span>
+              </div>
+            </li>
+            <li class="benefit">
+              <span class="benefit-icon" aria-hidden="true">✓</span>
+              <div class="benefit-text">
+                <strong class="benefit-title">Trusted riders</strong>
+                <span class="benefit-desc">Verified riders with OTP handoff and photo proof.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rfu-cta">
+          <a href="#partner" class="btn btn-dark">Become a partner</a>
+        </div>
+
+        <div class="rfu-fineprint">
+          <a href="#partner-terms">Partner terms</a>
+          <span aria-hidden="true">·</span>
+          <a href="#partner-faqs">Partner FAQs</a>
+        </div>
+      </div>
+    </section>
+  </section>
+
+
+
+  <section id="faqs" class="faq-section" aria-label="Frequently Asked Questions">
+    <div class="container">
+      <h2 class="faq-title">FAQs</h2>
+      <div class="faq-list" role="list">
+        <article class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq1" id="q1">How do I book a ride with ORDA RIDES?</button>
+          <div class="faq-answer" id="faq1" role="region" aria-labelledby="q1" hidden>
+            <p>Use the ORDA app, USSD, or SMS.</p>
+            <ol>
+              <li><strong>App</strong>: Open the app → enter pickup and destination → choose vehicle → confirm price → request.</li>
+              <li><strong>USSD</strong>: Dial the ORDA short code → follow prompts to share pickup/destination → confirm request.</li>
+              <li><strong>SMS</strong>: Text your pickup and destination in the format “Ride: From [pickup] to [destination]” → reply to confirm.</li>
+            </ol>
+          </div>
+        </article>
+
+        <article class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq2" id="q2">What types of vehicles are available?</button>
+          <div class="faq-answer" id="faq2" role="region" aria-labelledby="q2" hidden>
+            <p>Choose based on your trip:</p>
+            <ul>
+              <li><strong>Motorbike</strong>: Fastest for one passenger and small parcels.</li>
+              <li><strong>Tricycle</strong>: Great for short trips and medium cargo.</li>
+              <li><strong>Car</strong>: Comfortable rides, families, and weather protection.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq3" id="q3">Can I schedule a ride or delivery in advance?</button>
+          <div class="faq-answer" id="faq3" role="region" aria-labelledby="q3" hidden>
+            <p>Yes. You can schedule rides and deliveries from now up to 24 hours ahead. Pick a time slot in the app or follow the USSD/SMS prompts for scheduling.</p>
+          </div>
+        </article>
+
+        <article class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq4" id="q4">How do I send a package using ORDA RIDES?</button>
+          <div class="faq-answer" id="faq4" role="region" aria-labelledby="q4" hidden>
+            <p>Select Delivery, enter pickup and drop-off, choose the package size to match a bike, tricycle, or car, then confirm. Track your delivery live with OTP handoff and photo proof.</p>
+          </div>
+        </article>
+
+        <article class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq5" id="q5">What payment options are supported?</button>
+          <div class="faq-answer" id="faq5" role="region" aria-labelledby="q5" hidden>
+            <p>We support Mobile Money, cash, card (where available), and cash-on-delivery for parcels.</p>
+          </div>
+        </article>
+
+        <article class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq6" id="q6">Is ORDA RIDES available offline?</button>
+          <div class="faq-answer" id="faq6" role="region" aria-labelledby="q6" hidden>
+            <p>Yes. You can request rides via USSD or SMS in areas with limited internet connectivity.</p>
+          </div>
+        </article>
+
+        <article class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq7" id="q7">How are drivers and riders verified?</button>
+          <div class="faq-answer" id="faq7" role="region" aria-labelledby="q7" hidden>
+            <p>We verify IDs, rider licenses, and conduct background checks. Community references and safety training are required before activation.</p>
+          </div>
+        </article>
+
+        <article class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq8" id="q8">Can I track my ride or delivery in real time?</button>
+          <div class="faq-answer" id="faq8" role="region" aria-labelledby="q8" hidden>
+            <p>Yes. See GPS location, driver details, and ETA in-app. You’ll also receive SMS or in-app notifications at key stages.</p>
+          </div>
+        </article>
+
+        <article class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq9" id="q9">How does ORDA RIDES keep me informed about local news?</button>
+          <div class="faq-answer" id="faq9" role="region" aria-labelledby="q9" hidden>
+            <p>We provide hyper‑local alerts (road closures, market info, safety updates) in English or local languages, sourced from verified partners and community reporters.</p>
+          </div>
+        </article>
+
+        <article class="faq-item" role="listitem">
+          <button class="faq-question" aria-expanded="false" aria-controls="faq10" id="q10">How can I become a driver or delivery rider with ORDA RIDES?</button>
+          <div class="faq-answer" id="faq10" role="region" aria-labelledby="q10" hidden>
+            <p>Apply in the app or on our site. You’ll submit documents, complete safety training, and can start earning with flexible hours and instant payouts.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="waitlist" class="waitlist-section inquiry" aria-label="Inquiries">
+    <div class="container">
+      <div class="inquiry-wrap">
+        <div class="inquiry-grid">
+          <div class="inquiry-left">
+            <h2 class="inquiry-title">Let’s talk</h2>
+            <p class="inquiry-sub">Questions, partnerships, or press? Send us a message and we’ll get back to you fast.</p>
+            <form class="inq-form" action="#" method="post">
+          <div class="form-row">
+            <label class="field">
+              <span class="label">Full name</span>
+              <input type="text" name="name" placeholder="Your name" required>
+            </label>
+            <label class="field">
+              <span class="label">Phone</span>
+              <input type="tel" name="phone" placeholder="+233 …" required>
+            </label>
+          </div>
+          <div class="form-row">
+            <label class="field">
+              <span class="label">Email (optional)</span>
+              <input type="email" name="email" placeholder="you@example.com">
+            </label>
+            <label class="field">
+              <span class="label">Company/Org (optional)</span>
+              <input type="text" name="company" placeholder="Business name">
+            </label>
+          </div>
+          <label class="field">
+            <span class="label">Message</span>
+            <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-dark btn-send">Send message</button>
+            <div class="form-stores">
+              <a class="store-badge badge-apple" href="#app-store" aria-label="Download on the App Store">
+                <svg class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#ffffff" d="M16.365 12.213c-.02-2.14 1.753-3.167 1.833-3.218-1-1.459-2.552-1.658-3.103-1.684-1.317-.134-2.563.775-3.23.775-.667 0-1.692-.756-2.785-.735-1.431.021-2.75.834-3.487 2.115-1.49 2.582-.38 6.391 1.07 8.48.709 1.02 1.553 2.165 2.662 2.125 1.071-.041 1.475-.685 2.768-.685 1.293 0 1.655.685 2.787.664 1.144-.02 1.867-1.04 2.574-2.064.812-1.187 1.145-2.335 1.165-2.393-.025-.011-2.236-.857-2.254-3.295z"/><path fill="#ffffff" d="M14.56 5.502c.586-.712.981-1.7.874-2.686-.846.034-1.88.564-2.49 1.276-.545.632-1.02 1.64-.894 2.604.95.074 1.925-.482 2.51-1.194z"/></svg>
+                <span class="label"><small>Download on the</small><strong>App Store</strong></span>
+              </a>
+              <a class="store-badge badge-google" href="#google-play" aria-label="Get it on Google Play">
+                <svg class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#ffffff" d="M3.6 1.8l10.2 10.2L3.6 22.2c-.23-.15-.36-.41-.36-.71V2.51c0-.3.13-.56.36-.71z"/><path fill="#3ddc84" d="M14.5 12.01l2.41 2.41-9.65 5.58c-.36.21-.79.2-1.13-.02l8.37-7.97z"/><path fill="#f4b400" d="M19.31 9.93l-2.42 2.42L8.12 4.16l5.05-2.92c.38-.22.86-.21 1.24.02l4.9 2.86c.53.31.53 1.08 0 1.39z"/><path fill="#4285f4" d="M21.2 11.98c.3.17.3.61 0 .78l-2.02 1.18-2.42-2.42 2.42-2.42 2.02 1.17z"/></svg>
+                <span class="label"><small>Get it on</small><strong>Google Play</strong></span>
+              </a>
+            </div>
+          </div>
+            </form>
+          </div>
+          <div class="inquiry-right">
+            <div class="phone-frame">
+              <div class="notch"><span class="cam"></span><span class="spk"></span></div>
+              <div class="screen">
+                <div class="status">
+                  <span class="time">9:41</span>
+                  <span class="dots"></span>
+                </div>
+                <div class="app">
+                  <div class="app-header">
+                    <h4>ORDA</h4>
+                    <div class="avatar"></div>
+                  </div>
+                  <div class="app-card a1"><strong>Featured</strong><p>Get rides, deliveries, and news in one app.</p></div>
+                  <div class="app-card a2"><strong>Recent Activity</strong><p>Your last trip was GHS 18.00</p></div>
+                  <div class="app-card a3"><strong>Notifications</strong><p>2 new alerts near Makola</p></div>
+                </div>
+                <div class="bottom-nav">
+                  <span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+              <div class="side-btn"></div>
+              <div class="vol-up"></div>
+              <div class="vol-down"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials" class="testimonials-section" aria-label="Testimonials">
+    <div class="container">
+      <div class="testimonials-header" style="text-align:center;">
+        <span class="pill">Testimonials</span>
+        <h2 class="section-title">What our riders and partners say</h2>
+      </div>
+    </div>
+
+    <div class="testimonials-gallery" aria-label="Community highlights">
+      <div class="tstl-perspective">
+        <div class="tstl-perspective-inner">
+          <div class="tstl-row row-1">
+            <div class="tstl-item" data-full="../images/orda/makola.jpg"><div class="tstl-bg" style="background-image:url('../images/orda/makola.jpg')"></div></div>
+            <div class="tstl-item" data-full="../images/orda/biker.jpg"><div class="tstl-bg" style="background-image:url('../images/orda/biker.jpg')"></div></div>
+            <div class="tstl-item" data-full="../images/orda/market.jpeg"><div class="tstl-bg" style="background-image:url('../images/orda/market.jpeg')"></div></div>
+            <div class="tstl-item" data-full="../images/okada.png"><div class="tstl-bg" style="background-image:url('../images/okada.png')"></div></div>
+            <div class="tstl-item" data-full="../images/woman.png"><div class="tstl-bg" style="background-image:url('../images/woman.png')"></div></div>
+            <div class="tstl-item" data-full="../images/orda/googlemaps.png"><div class="tstl-bg" style="background-image:url('../images/orda/googlemaps.png')"></div></div>
+          </div>
+          <div class="tstl-row row-2">
+            <div class="tstl-item" data-full="../images/orda/biker.jpg"><div class="tstl-bg" style="background-image:url('../images/orda/biker.jpg')"></div></div>
+            <div class="tstl-item" data-full="../images/orda/makola.jpg"><div class="tstl-bg" style="background-image:url('../images/orda/makola.jpg')"></div></div>
+            <div class="tstl-item" data-full="../images/orda/market.jpeg"><div class="tstl-bg" style="background-image:url('../images/orda/market.jpeg')"></div></div>
+            <div class="tstl-item" data-full="../images/okada.png"><div class="tstl-bg" style="background-image:url('../images/okada.png')"></div></div>
+            <div class="tstl-item" data-full="../images/woman.png"><div class="tstl-bg" style="background-image:url('../images/woman.png')"></div></div>
+            <div class="tstl-item" data-full="../images/orda/Gemini_Generated_Image_421q36421q36421q.png"><div class="tstl-bg" style="background-image:url('../images/orda/Gemini_Generated_Image_421q36421q36421q.png')"></div></div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="tstl-modal" id="testimonialModal" aria-hidden="true">
+      <div class="tstl-modal-backdrop" data-close="true"></div>
+      <div class="tstl-modal-card" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="tstl-modal-close" aria-label="Close" data-close="true">&times;</button>
+        <img class="tstl-modal-image" id="testimonialModalImage" alt="Testimonial image" />
+      </div>
+    </div>
+  </section>
+
+  <section class="end-section" aria-label="Wrap up">
+    <div class="end-hero" style="background-image:url('../images/background.png')">
+      <div class="end-overlay" aria-hidden="true"></div>
+      <div class="end-content">
+        <h2>ORDA Rides is coming to your community soon!</h2>
+        <a href="#apply" class="btn btn-dark end-cta">Join Us!</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer footer-revamp" aria-label="Footer">
+    <div class="footer-canvas" aria-hidden="true"></div>
+    <div class="footer-wrap">
+      <div class="footer-top">
+        <div class="footer-brand" aria-label="Brand statement">
+          <span>ORDA Rides</span>
+          <span>Your Orders </span>
+          <span>Your Rides</span>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <ul class="nav-col">
+            <li><a href="#rides">Rides</a></li>
+            <li><a href="#delivery">Delivery</a></li>
+            <li><a href="#news">Local news</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+          <ul class="nav-col">
+            <li><a href="#careers">Recruitment</a></li>
+            <li><a href="#faqs">FAQ</a></li>
+            <li><a href="#business">Business</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-social" aria-label="Social links">
+          <a href="#twitter">Twitter</a>
+          <a href="#youtube">Youtube</a>
+          <a href="#linkedin">LinkedIn</a>
+        </div>
+        <div class="footer-legal">
+          <a href="#credits">Credits</a>
+          <a href="#legal">Legal</a>
+          <a href="#cookies">Cookies</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-hero-word" aria-hidden="true">ORDA RIDES</div>
+  </footer>
+
+  <!-- GSAP for scroll animations -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="tryout.js"></script>
+</body>
+</html>
