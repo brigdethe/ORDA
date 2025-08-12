@@ -536,30 +536,46 @@
 })();
 
 
-// Testimonials modal viewer
+// Testimonials modal viewer (text-based)
 (function () {
   const gallery = document.querySelector('.testimonials-gallery');
   if (!gallery) return;
   const modal = document.getElementById('testimonialModal');
-  const modalImg = document.getElementById('testimonialModalImage');
-  if (!modal || !modalImg) return;
+  const quoteEl = document.getElementById('testimonialModalQuote');
+  const nameEl = document.getElementById('testimonialModalName');
+  const roleEl = document.getElementById('testimonialModalRole');
+  if (!modal || !quoteEl || !nameEl || !roleEl) return;
 
-  function open(src) {
-    modalImg.src = src;
+  function open({ quote, name, role }) {
+    quoteEl.textContent = `“${quote}”`;
+    nameEl.textContent = name || '';
+    roleEl.textContent = role || '';
     modal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
   }
   function close() {
     modal.classList.remove('is-open');
-    modalImg.src = '';
+    quoteEl.textContent = '';
+    nameEl.textContent = '';
+    roleEl.textContent = '';
     document.body.style.overflow = '';
   }
 
-  gallery.addEventListener('click', (e) => {
-    const item = e.target.closest('.tstl-item');
+  function handleActivate(target) {
+    const item = target.closest('.tstl-item');
     if (!item || !gallery.contains(item)) return;
-    const src = item.getAttribute('data-full');
-    if (src) open(src);
+    const quote = item.getAttribute('data-quote');
+    const name = item.getAttribute('data-name');
+    const role = item.getAttribute('data-role');
+    if (quote) open({ quote, name, role });
+  }
+
+  gallery.addEventListener('click', (e) => handleActivate(e.target));
+  gallery.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      handleActivate(e.target);
+    }
   });
 
   modal.addEventListener('click', (e) => {
@@ -674,5 +690,56 @@
     }
   }
   tabs.forEach(t => t.addEventListener('click', () => activate(t.dataset.key)));
+})();
+
+// Simple reveal-on-scroll for content below the hero (no GSAP)
+(function initSimpleReveal() {
+  if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const inHero = (el) => !!el.closest('.landing-section');
+
+  const selectors = [
+    '#mission .mission-content',
+    '#mission .flex-gallery .card',
+    '#services .features-split',
+    '.earn-section .earn-content',
+    '.rfu',
+    '.faq-section .faq-item',
+    '.waitlist-section .inquiry-wrap',
+    '#testimonials .testimonials-header',
+    '.testimonials-gallery',
+    '.end-section .end-content',
+    '.site-footer .footer-top',
+    '.site-footer .footer-bottom'
+  ];
+
+  const targets = [];
+  selectors.forEach((sel) => {
+    document.querySelectorAll(sel).forEach((el) => {
+      if (!inHero(el)) targets.push(el);
+    });
+  });
+
+  if (targets.length === 0) return;
+
+  if (prefersReduced) {
+    targets.forEach((el) => el.classList.add('reveal', 'is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    }
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+  targets.forEach((el) => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
 })();
 
