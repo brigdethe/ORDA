@@ -1261,9 +1261,9 @@ h1.hero-title {
 .features-split { width: min(1600px, 96vw); margin: clamp(24px, 4vw, 48px) auto 0; display: grid; grid-template-columns: clamp(320px, 34vw, 520px) 1fr; gap: clamp(20px, 4vw, 40px); align-items: stretch; }
 .fs-left { background: transparent; border: none; border-radius: 0; padding: clamp(16px, 3vw, 22px); display: grid; align-content: end; gap: clamp(10px, 2vw, 18px); box-shadow: none; min-height: clamp(520px, 70vh, 860px); position: relative; }
 .fs-left .fs-tab + .fs-tab { border-top: 1px solid rgba(15,23,42,0.08); }
-.fs-tab { appearance: none; background: transparent; border: none; text-align: left; padding: clamp(18px, 2.8vw, 28px) 14px; font-weight: 500; font-size: clamp(26px, 3.6vw, 44px); color: #0f172a; border-left: 5px solid transparent; border-radius: 12px; cursor: pointer; letter-spacing: -0.01em; }
-.fs-tab:hover { background: #f8fafc; }
-.fs-tab.is-active { color: #1b3aa6; background: #eef2ff; border-left-color: #2d63f0; box-shadow: inset 0 0 0 9999px rgba(45,99,240,0.04); }
+.fs-tab { appearance: none; background: transparent; border: none; text-align: left; padding: clamp(18px, 2.8vw, 28px) 14px; font-weight: 500; font-size: clamp(26px, 3.6vw, 44px); color: #0f172a; border-radius: 12px; cursor: pointer; letter-spacing: -0.01em; position: relative; }
+.fs-tab:hover { background: transparent; }
+.fs-tab.is-active { color: #1b3aa6; background: #eef2ff; box-shadow: inset 0 0 0 9999px rgba(45,99,240,0.04); }
 
 .fs-right { position: relative; min-height: clamp(560px, 70vh, 860px); border-radius: 24px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
 .fs-panel { position: absolute; inset: 0; opacity: 0; pointer-events: none; }
@@ -1303,3 +1303,45 @@ h1.hero-title {
     transition: none;
   }
 }
+
+.fs-tab::before,
+.fs-tab::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: clamp(12px, 1.8vw, 18px);
+  height: 2px;
+  background: transparent;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 300ms ease, background-color 300ms ease;
+}
+/* Base faint underline track */
+.fs-tab::before {
+  background: rgba(15,23,42,0.12);
+  transform: scaleX(1);
+}
+/* Active animated underline */
+.fs-tab::after {
+  background: #2d63f0;
+}
+.fs-tab:hover::after {
+  background: #1b3aa6;
+  transform: scaleX(0.5);
+}
+.fs-tab.is-active::after {
+  transform: scaleX(1);
+  background: #2d63f0;
+}
+
+/* Remove previous left-border visual emphasis but keep background change */
+.fs-tab.is-active {
+  color: #1b3aa6;
+  background: #eef2ff;
+  box-shadow: inset 0 0 0 9999px rgba(45,99,240,0.04);
+}
+
+/* Smooth transition when switching between tabs */
+.fs-left { position: relative; }
+.fs-left .fs-tab { transition: background-color 220ms ease, color 220ms ease; }
