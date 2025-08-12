@@ -743,3 +743,107 @@
   });
 })();
 
+// Phone mockup animations (GSAP)
+(function initPhoneMockupGSAP() {
+  if (typeof window === 'undefined') return;
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const phone = document.querySelector('.inquiry-right .phone-frame');
+  if (!phone) return;
+
+  // Only proceed if GSAP is available
+  if (!window.gsap) return;
+  if (window.ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+
+  const status = phone.querySelector('.status');
+  const header = phone.querySelector('.app-header');
+  const segs = phone.querySelector('.app-segs');
+  const map = phone.querySelector('.app-map');
+  const fields = phone.querySelectorAll('.app-field');
+  const actions = phone.querySelector('.app-actions');
+  const quickItems = phone.querySelectorAll('.app-quick .quick-item');
+  const bottomNav = phone.querySelector('.bottom-nav');
+  const pin = phone.querySelector('.map-pin');
+  const brandDot = phone.querySelector('.app-header .brand .dot');
+
+  // Entrance timeline when the phone enters the viewport
+  if (window.ScrollTrigger) {
+    const tl = gsap.timeline({
+      defaults: { ease: 'power3.out' },
+      scrollTrigger: {
+        trigger: phone,
+        start: 'top 80%',
+        once: true
+      }
+    });
+
+    tl.from(phone, { y: 30, opacity: 0, duration: 0.6 })
+      .from([status, header], { opacity: 0, y: 12, duration: 0.4, stagger: 0.1 }, '-=0.25')
+      .from(segs, { opacity: 0, y: 10, duration: 0.35 }, '-=0.2')
+      .from(map, { opacity: 0, scale: 0.98, duration: 0.5 }, '-=0.15')
+      .from(fields, { opacity: 0, y: 10, duration: 0.35, stagger: 0.08 }, '-=0.2')
+      .from(actions, { opacity: 0, y: 10, duration: 0.35 }, '-=0.15')
+      .from(quickItems, { opacity: 0, y: 8, duration: 0.3, stagger: 0.06 }, '-=0.15')
+      .from(bottomNav, { opacity: 0, y: 8, duration: 0.35 }, '-=0.1');
+  }
+
+  if (prefersReduced) return;
+
+  // Idle pulse for brand dot
+  if (brandDot) {
+    gsap.to(brandDot, {
+      scale: 1.18,
+      boxShadow: '0 0 0 8px rgba(45,99,240,0.10)',
+      duration: 1.6,
+      ease: 'sine.inOut',
+      yoyo: true,
+      repeat: -1
+    });
+  }
+
+  // Map pin gentle pulse
+  if (pin) {
+    gsap.to(pin, {
+      y: -2,
+      scale: 1.08,
+      duration: 1.4,
+      ease: 'sine.inOut',
+      yoyo: true,
+      repeat: -1
+    });
+  }
+
+  // Subtle parallax on map background
+  if (map) {
+    gsap.to(map, {
+      backgroundPosition: '50% 52%',
+      duration: 3,
+      ease: 'sine.inOut',
+      yoyo: true,
+      repeat: -1
+    });
+  }
+
+  // Removed idle bobbing on quick items per request
+
+  // Mouse tilt effect for the phone
+  const maxTilt = 6; // degrees
+  let hover = false;
+  const onMove = (e) => {
+    const rect = phone.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = (e.clientX - cx) / (rect.width / 2);
+    const dy = (e.clientY - cy) / (rect.height / 2);
+    const rotateY = gsap.utils.clamp(-1, 1, dx) * maxTilt;
+    const rotateX = gsap.utils.clamp(-1, 1, -dy) * maxTilt;
+    gsap.to(phone, { rotateX, rotateY, transformPerspective: 800, transformOrigin: 'center center', duration: 0.3, ease: 'power2.out' });
+  };
+  const resetTilt = () => {
+    gsap.to(phone, { rotateX: 0, rotateY: 0, duration: 0.5, ease: 'power3.out' });
+  };
+
+  phone.addEventListener('mouseenter', () => { hover = true; });
+  phone.addEventListener('mousemove', (e) => { if (hover) onMove(e); });
+  phone.addEventListener('mouseleave', () => { hover = false; resetTilt(); });
+})();
+
