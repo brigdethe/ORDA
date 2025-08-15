@@ -1,739 +1,2490 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ORDA Rides – Ride-Sharing App</title>
+<html class="html" lang="en-GB">
+  <head>
+  <script type="text/javascript" src="/wp-content/themes/beaucoup/tarteaucitron/tarteaucitron.js"></script>
+<script type="text/javascript">
+  window.tarteaucitronForceLanguage = "en";
+ 
+ var tarteaucitronCustomText = {
+    acceptAll: "Accept",
+    personalize: "Preferences",
+    alertBigPrivacy: "By clicking on \"Accept\", you agree to the installation of cookies on your browser in order to improve your browsing experience and the acquisition of statistics. See our legal notice for more information.",
+    title: "Preferences",
+    disclaimer: "By authorizing these third-party services, you accept the deposit and reading of cookies and the use of tracking technologies necessary for their proper functioning.",
+    all: "All services preferences",
+    mandatoryText: "This site uses cookies which are necessary for its proper operation. They cannot be deactivated.",
+    analytic: {
+        "details": "Audience measurement services are used to generate visitor statistics, which are useful for improving the site."
+    }
+  }
+
+  tarteaucitron.init({
+    "privacyUrl": "", /* Privacy policy url */
+    "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
+    "cookieName": "tarteaucitron", /* Cookie name */
+    "orientation": "bottom", /* Banner position (top - bottom) */
+    "groupServices": false, /* Group services by category */
+    "showAlertSmall": false, /* Show the small banner on bottom right */
+    "cookieslist": false, /* Show the cookie list */
+    "closePopup": false, /* Show a close X on the banner */
+    "showIcon": false, /* Show cookie icon to manage cookies */
+    // "iconSrc": "../images/svg/arrow-bold.svg", /* Optionnal: URL or base64 encoded image */
+    // "iconPosition": "BottomRight", /* BottomRight, BottomLeft, TopRight and TopLeft */
+    "adblocker": false, /* Show a Warning if an adblocker is detected */
+    "DenyAllCta" : false, /* Show the deny all button */
+    "AcceptAllCta" : true, /* Show the accept all button when highPrivacy on */
+    "highPrivacy": true, /* HIGHLY RECOMMANDED Disable auto consent */
+    "handleBrowserDNTRequest": false, /* If Do Not Track == 1, disallow all */
+    "removeCredit": true, /* Remove credit link */
+    "moreInfoLink": false, /* Show more info link */
+    "useExternalCss": false, /* If false, the tarteaucitron.css file will be loaded */
+    "useExternalJs": false, /* If false, the tarteaucitron.js file will be loaded */
+    "readmoreLink": "", /* Change the default readmore link */
+    "mandatory": true, /* Show a message about mandatory cookies */
+  });
+</script>
+
+  <script type="text/javascript">
+    tarteaucitron.user.gtagUa ='G-RDCZPBN3Z2';
+    tarteaucitron.user.gtagMore = function () {};
+    (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="apple-touch-icon" sizes="57x57" href="/wp-content/themes/beaucoup/resources/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/wp-content/themes/beaucoup/resources/favicon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/wp-content/themes/beaucoup/resources/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/wp-content/themes/beaucoup/resources/favicon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/wp-content/themes/beaucoup/resources/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/wp-content/themes/beaucoup/resources/favicon/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/wp-content/themes/beaucoup/resources/favicon/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/wp-content/themes/beaucoup/resources/favicon/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/wp-content/themes/beaucoup/resources/favicon/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="144x144"  href="/wp-content/themes/beaucoup/resources/favicon/android-chrome-144x144.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/wp-content/themes/beaucoup/resources/favicon/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512"  href="/wp-content/themes/beaucoup/resources/favicon/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/wp-content/themes/beaucoup/resources/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/wp-content/themes/beaucoup/resources/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/wp-content/themes/beaucoup/resources/favicon/favicon-48x48.png">
+  <link rel="manifest" href="/wp-content/themes/beaucoup/resources/favicon/manifest.webmanifest">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/wp-content/themes/beaucoup/resourcesfavicon/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- Google Fonts - Nunito for rounded, inviting typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="tryout.css">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Crect width='256' height='256' rx='56' ry='56' fill='%230a0a0a'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' dominant-baseline='middle' font-family='Plus Jakarta Sans, Arial, sans-serif' font-size='168' font-weight='800' fill='%23ffffff'%3EO%3C/text%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
   
+  <!-- Custom CSS for rounded font styling -->
   <style>
-    body { opacity: 0; transition: opacity 300ms ease; }
-    @media (prefers-reduced-motion: reduce) {
-      body { transition: none; }
+    * {
+      font-family: 'Nunito', sans-serif !important;
+    }
+    
+    /* Make headings extra rounded and friendly */
+    h1, h2, h3, h4, h5, h6, .font-black {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 900 !important;
+      letter-spacing: 0.02em !important;
+    }
+    
+    /* Body text with softer weight */
+    p, div, a, button {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600 !important;
+    }
+    
+    /* Span elements with font-black should maintain their boldness */
+    span {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 600 !important;
+    }
+    
+    /* Override for font-black spans specifically */
+    .font-black span, span.font-black, .font-black {
+      font-weight: 900 !important;
+    }
+    
+    /* Menu items */
+    .menu__item {
+      font-family: 'Nunito', sans-serif !important;
+      font-weight: 700 !important;
+    }
+    
+    /* Logo styling */
+    .text-green, .text-beige, .text-light-green {
+      font-family: 'Nunito', sans-serif !important;
+    }
+    
+    /* Motorcycle animation */
+    @keyframes motorcycleMove {
+      0% {
+        transform: translateX(-15px);
+      }
+      50% {
+        transform: translateX(15px);
+      }
+      100% {
+        transform: translateX(-15px);
+      }
+    }
+    
+    .motorcycle-animate {
+      animation: motorcycleMove 3s ease-in-out infinite;
+    }
+    
+    .motorcycle-animate.paused {
+      animation-play-state: paused;
     }
   </style>
+  
+  <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel="alternate" href="https://www.caeli-energie.com/" hreflang="fr" />
+<link rel="alternate" href="https://www.caeli-energie.com/en/home/" hreflang="en" />
+
+	<!-- This site is optimized with the Yoast SEO plugin v22.9 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Home - ORDA RIDES</title>
+	<link rel="canonical" href="https://www.caeli-energie.com/en/home/" />
+	<meta property="og:locale" content="en_GB" />
+	<meta property="og:locale:alternate" content="fr_FR" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Home - ORDA RIDES" />
+	<meta property="og:url" content="https://www.caeli-energie.com/en/home/" />
+	<meta property="og:site_name" content="ORDA RIDES" />
+	<meta property="article:modified_time" content="2025-02-04T13:59:34+00:00" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://www.caeli-energie.com/en/home/","url":"https://www.caeli-energie.com/en/home/","name":"Home - Caeli Energie","isPartOf":{"@id":"https://www.caeli-energie.com/en/home/#website"},"datePublished":"2024-05-29T15:56:02+00:00","dateModified":"2025-02-04T13:59:34+00:00","breadcrumb":{"@id":"https://www.caeli-energie.com/en/home/#breadcrumb"},"inLanguage":"en-GB","potentialAction":[{"@type":"ReadAction","target":["https://www.caeli-energie.com/en/home/"]}]},{"@type":"BreadcrumbList","@id":"https://www.caeli-energie.com/en/home/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"}]},{"@type":"WebSite","@id":"https://www.caeli-energie.com/en/home/#website","url":"https://www.caeli-energie.com/en/home/","name":"Caeli Energie","description":"La révolution fraîche","inLanguage":"en-GB"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="https://api.w.org/" href="https://www.caeli-energie.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.caeli-energie.com/wp-json/wp/v2/pages/41" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.caeli-energie.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.8.2" />
+<link rel='shortlink' href='https://www.caeli-energie.com/' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.caeli-energie.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.caeli-energie.com%2Fen%2Fhome%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.caeli-energie.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.caeli-energie.com%2Fen%2Fhome%2F&#038;format=xml" />
 
 </head>
-<body>
-  
-  <section id="home" class="landing-section" aria-label="Highlights">
-    <div class="landing-carousel" role="group" aria-roledescription="carousel" aria-label="Landing promotions" aria-live="polite">
-      <div class="landing-track">
-        <article class="landing-slide is-active" style="background-image:url('../images/main.png')" aria-label="Get paid as you work">
-          <div class="landing-overlay"></div>
-          <div class="landing-content">
-            <h2 class="landing-title">Ride Anywhere, Anytime, with ORDA Rides</h2>
-            <p class="landing-sub">Enjoy afforable, safe and premium transportation service</p>
-            <a href="#get-started" class="btn btn-primary landing-cta">Get started</a>
-          </div>
-        </article>
+  <body class="">
+    <div class="lenis-wrapper h-[var(--vh)]">
+            <div class="lenis-content min-h-[var(--vh)]">
+                <div class="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: radial-gradient(circle at bottom, #076442 50%, #053725 90%); pointer-events: none; z-index: 20;">
+  <div class="loader__logotype" style="color: #f9f7e7; opacity: 0; font-size: 3rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1rem;">ORDA</div>
+  <div class="loader__subtitle" style="color: #f9f7e7; opacity: 0; font-size: 1rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em;">Connecting Communities</div>
+</div>
+        <header class="header fixed left-0 top-10 lg:top-15 w-full h-[5rem] lg:h-[6rem] flex gap-x-grid px-container will-change-transform z-header">
+  <div class="header__overlay fixed left-0 -top-10 lg:-top-15 w-screen h-[var(--vh)] bg-green/30 opacity-0 cursor-pointer pointer-events-none duration-300 ease-out transition-opacity"></div>
 
-        <article class="landing-slide" style="background-image:url('../images/orda/biker.jpg')" aria-label="Safe, affordable rides">
-          <div class="landing-overlay"></div>
-          <div class="landing-content">
-            <h2 class="landing-title">Safe, affordable rides in your community</h2>
-            <p class="landing-sub">Upfront pricing and real‑time tracking</p>
-            <a href="#rides" class="btn btn-primary landing-cta">Book a ride</a>
-          </div>
-        </article>
-
-        <article class="landing-slide" style="background-image:url('../images/orda/market.jpeg')" aria-label="Fast local delivery">
-          <div class="landing-overlay"></div>
-          <div class="landing-content">
-            <h2 class="landing-title">Deliver anything — fast</h2>
-            <p class="landing-sub">Verified riders with OTP handoff</p>
-            <a href="#delivery" class="btn btn-primary landing-cta">Send a package</a>
-          </div>
-        </article>
-
-        <article class="landing-slide" style="background-image:url('../images/orda/googlemaps.png')" aria-label="Hyper‑local news updates">
-          <div class="landing-overlay"></div>
-          <div class="landing-content">
-            <h2 class="landing-title">Stay ahead with hyper‑local news</h2>
-            <p class="landing-sub">Road closures, market prices, and safety alerts</p>
-            <a href="#news" class="btn btn-primary landing-cta">See local news</a>
-          </div>
-        </article>
-
-        <article class="landing-slide" style="background-image:url('../images/prince.jpg')" aria-label="Join as a driver">
-          <div class="landing-overlay"></div>
-          <div class="landing-content">
-            <h2 class="landing-title">Join ORDA — drive and earn more</h2>
-            <p class="landing-sub">Flexible hours, instant payouts, real support</p>
-            <a href="#apply" class="btn btn-primary landing-cta">Apply to drive</a>
-          </div>
-        </article>
-      </div>
-      <div class="landing-controls">
-        <button class="landing-btn prev" aria-label="Previous slide">
-          <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="landing-dots" role="tablist" aria-label="Slide pagination"></div>
-        <button class="landing-btn next" aria-label="Next slide">
-          <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
+  <div class="relative flex-1 h-full flex gap-x-5">
+    <div class="flex-1 h-full flex items-center justify-between px-15 lg:px-20 border-px border-green/10 bg-light-beige text-green rounded-5">
+      <div class="h-full flex items-center w-auto cursor-pointer body-20 lg:body-28 font-black uppercase tracking-wide" aria-label="Accueil">ORDA</div>
+      <div class="menu__toggler relative lg:hidden body-16">
+        <span class="menu__open">Menu</span>
+        <span class="menu__close absolute right-0 top-1/2 -translate-y-1/2 opacity-0">Close</span>
       </div>
     </div>
-  </section>
 
-  <header class="site-nav" aria-label="Primary">
-    <div class="nav-container">
-      <a class="nav-brand" href="#home" aria-label="ORDA home">ORDA Rides</a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#mission">Mission</a>
-        <a href="#services">Services</a>
-        <a href="#earn">Earn</a>
-        <a href="#faqs">FAQs</a>
-        <a href="#waitlist">Contact</a>
-        <a href="#testimonials">Testimonials</a>
-      </nav>
-      <button class="nav-toggle" aria-label="Open menu" aria-controls="mobileNav" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <a class="store-badge badge-google nav-store" href="#google-play" aria-label="Get it on Google Play">
-        <svg class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#ffffff" d="M3.6 1.8l10.2 10.2L3.6 22.2c-.23-.15-.36-.41-.36-.71V2.51c0-.3.13-.56.36-.71z"/><path fill="#3ddc84" d="M14.5 12.01l2.41 2.41-9.65 5.58c-.36.21-.79.2-1.13-.02l8.37-7.97z"/><path fill="#f4b400" d="M19.31 9.93l-2.42 2.42L8.12 4.16l5.05-2.92c.38-.22.86-.21 1.24.02l4.9 2.86c.53.31.53 1.08 0 1.39z"/><path fill="#4285f4" d="M21.2 11.98c.3.17.3.61 0 .78l-2.02 1.18-2.42-2.42 2.42-2.42 2.02 1.17z"/></svg>
-        <span class="label"><small>Get it on</small><strong>Google Play</strong></span>
-      </a>
-    </div>
-  </header>
-
-  <div class="mobile-nav" id="mobileNav" aria-hidden="true">
-    <div class="mobile-nav-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
-      <button class="mobile-nav-close" aria-label="Close menu" data-close>
-        &times;
-      </button>
-      <nav class="mobile-menu" aria-label="Mobile navigation">
-        <a href="#mission">Mission</a>
-        <a href="#services">Services</a>
-        <a href="#earn">Earn</a>
-        <a href="#faqs">FAQs</a>
-        <a href="#waitlist">Contact</a>
-        <a href="#testimonials">Testimonials</a>
-      </nav>
-      <div class="mobile-store">
-        <a class="store-badge badge-google" href="#google-play" aria-label="Get it on Google Play">
-          <svg class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#ffffff" d="M3.6 1.8l10.2 10.2L3.6 22.2c-.23-.15-.36-.41-.36-.71V2.51c0-.3.13-.56.36-.71z"/><path fill="#3ddc84" d="M14.5 12.01l2.41 2.41-9.65 5.58c-.36.21-.79.2-1.13-.02l8.37-7.97z"/><path fill="#f4b400" d="M19.31 9.93l-2.42 2.42L8.12 4.16l5.05-2.92c.38-.22.86-.21 1.24.02l4.9 2.86c.53.31.53 1.08 0 1.39z"/><path fill="#4285f4" d="M21.2 11.98c.3.17.3.61 0 .78l-2.02 1.18-2.42-2.42 2.42-2.42 2.02 1.17z"/></svg>
-          <span class="label"><small>Get it on</small><strong>Google Play</strong></span>
-        </a>
       </div>
+
+  <div class="menu absolute left-container lg:left-1/2 max-lg:-bottom-5 lg:top-1/2 max-lg:w-[calc(100%_-_var(--padding-container)_*_2)] h-[calc(var(--vh)_-_1rem_-_var(--header-height,_5rem)_-_0.5rem_-_1rem)] lg:h-[6rem] lg:-translate-x-1/2 translate-y-full lg:-translate-y-1/2 max-lg:pointer-events-none">
+    <div class="menu__panel relative h-full flex flex-col justify-between gap-y-15 max-lg:p-15 max-lg:rounded-5 max-lg:overflow-hidden">
+      <div class="menu__background absolute-full lg:hidden border-px border-green/10 bg-light-beige rounded-5 will-change-transform -z-1"></div>
+      <div class="menu__overflow lg:h-full max-lg:flex-1 max-lg:flex max-lg:flex-col max-lg:justify-between max-lg:gap-y-15 max-lg:pt-35 overflow-x-hidden overflow-y-auto" data-lenis-prevent>
+        <div class="lg:h-full flex flex-col lg:justify-center gap-y-30 text-green">
+          <div class="menu__items flex max-lg:flex-col items-start lg:items-center gap-y-10 body-16 max-lg:text-28 max-lg:font-bold max-lg:leading-none">
+                                          <div>
+                  <div class="menu__item lg:px-15 xl:px-20 lg:whitespace-nowrap">Home</div>
+                </div>
+                                                        <div>
+                  <div class="menu__item flex gap-x-15 lg:gap-x-5 items-center pr-15 lg:px-15 xl:px-20 lg:whitespace-nowrap cursor-pointer" data-index="1">
+                    Community
+                    <div class="menu__item-caret w-[1.2rem] lg:w-[0.8rem] max-lg:mt-[0.1rem] svg-wrapper"><svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M9 1L5.00001 5.2353L1 1" stroke="currentColor" stroke-linecap="round"/>
+</svg></div>
+                  </div>
+                </div>
+                <div class="submenu lg:absolute lg:left-1/2 lg:top-[calc(100%_+_1rem)] w-full lg:w-[calc(var(--header-width,_100vw)_-_2_*_var(--padding-container)_-_1rem_-_var(--header-button-width,_20rem))] lg:p-20 max-lg:-mt-10 lg:-translate-x-[calc(50%_+_(var(--header-button-width,_20rem)_+_1rem)_/_2)] overflow-hidden lg:rounded-5 pointer-events-none" data-index="1">
+                  <div class="submenu__background absolute-full max-lg:hidden border-px border-green/10 bg-light-beige rounded-5 will-change-transform -z-1"></div>
+                  <div class="flex gap-x-20 items-end">
+                    <div class="relative basis-[37.5rem] min-h-[22.5rem] max-lg:hidden grow-0 shrink-0 rounded-8 overflow-hidden">
+                                                                      <div class="submenu__image absolute-full will-change-transform">
+                          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-9-480x480.png"
+      data-srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-9-480x480.png 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-9.png 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-9.png 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-9.png 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-9.png 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-9.png 2560w,
+              "
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      26vw" >
+  </figure>
+</div>                        </div>
+                                                                      <div class="submenu__image absolute-full will-change-transform">
+                          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-background-480x271.webp"
+      data-srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-background-480x271.webp 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-background-768x433.webp 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-background-1200x677.webp 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-background-1600x903.webp 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-background-1920x1083.webp 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-background.webp 2560w,
+              "
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      26vw" >
+  </figure>
+</div>                        </div>
+                                                                      <div class="submenu__image absolute-full will-change-transform">
+                          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt="Les 3 co-fondateurs de CAELI ENERGIE avec qui l&#039;histoire commence"
+                data-src="https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-8-480x320.jpg"
+      data-srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-8-480x320.jpg 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-8-768x512.jpg 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-8-1200x800.jpg 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-8-1600x1067.jpg 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-8-1920x1280.jpg 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/caeli-energie-cooler-future-8-2560x1707.jpg 2560w,
+              "
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      26vw" >
+  </figure>
+</div>                        </div>
+                                                                      <div class="submenu__image absolute-full will-change-transform">
+                          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt="L&#039;équipe CAELI ENERGIE"
+                data-src="https://www.caeli-energie.com/wp-content/uploads/2024/07/caeli-team-480x320.jpg"
+      data-srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/caeli-team-480x320.jpg 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/caeli-team-768x512.jpg 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/caeli-team-1200x800.jpg 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/caeli-team-1600x1067.jpg 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/caeli-team-1920x1281.jpg 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/caeli-team-2560x1708.jpg 2560w,
+              "
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      26vw" >
+  </figure>
+</div>                        </div>
+                                                                </div>
+                    <div class="flex-1 flex flex-col pb-10">
+                                              <div class="submenu__item relative pb-10 pt-15 border-b-green/20 border-b-px">
+                          <div class="submenu__item-line absolute left-0 -bottom-[1px] w-full h-[1px] bg-green origin-left"></div>
+                          <div class="relative">
+                            <div class="absolute left-0 top-1/2 w-[2.5rem] h-[2.5rem] -translate-y-1/2">
+                              <div class="submenu__item-circle absolute-full border-px border-light-green border-opacity-20 rounded-full"></div>
+                              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                <div class="submenu__item-arrow w-[0.622rem] h-[0.661rem] -rotate-90 delay-100 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+                              </div>
+                            </div>
+                            <div class="submenu__item-title inline-block translate-x-[calc(2.5rem_+_1rem)] max-lg:text-16 max-lg:leading-[175%] align-bottom">Our Story</div>
+                          </div>
+                        </div>
+                                              <div class="submenu__item relative pb-10 pt-15 border-b-green/20 border-b-px">
+                          <div class="submenu__item-line absolute left-0 -bottom-[1px] w-full h-[1px] bg-green origin-left"></div>
+                          <div class="relative">
+                            <div class="absolute left-0 top-1/2 w-[2.5rem] h-[2.5rem] -translate-y-1/2">
+                              <div class="submenu__item-circle absolute-full border-px border-light-green border-opacity-20 rounded-full"></div>
+                              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                <div class="submenu__item-arrow w-[0.622rem] h-[0.661rem] -rotate-90 delay-100 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+                              </div>
+                            </div>
+                            <div class="submenu__item-title inline-block translate-x-[calc(2.5rem_+_1rem)] max-lg:text-16 max-lg:leading-[175%] align-bottom">Our Mission</div>
+                          </div>
+                        </div>
+                                              <div class="submenu__item relative pb-10 pt-15 border-b-green/20 border-b-px">
+                          <div class="submenu__item-line absolute left-0 -bottom-[1px] w-full h-[1px] bg-green origin-left"></div>
+                          <div class="relative">
+                            <div class="absolute left-0 top-1/2 w-[2.5rem] h-[2.5rem] -translate-y-1/2">
+                              <div class="submenu__item-circle absolute-full border-px border-light-green border-opacity-20 rounded-full"></div>
+                              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                <div class="submenu__item-arrow w-[0.622rem] h-[0.661rem] -rotate-90 delay-100 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+                              </div>
+                            </div>
+                            <div class="submenu__item-title inline-block translate-x-[calc(2.5rem_+_1rem)] max-lg:text-16 max-lg:leading-[175%] align-bottom">Partners</div>
+                          </div>
+                        </div>
+                                              <div class="submenu__item relative pb-10 pt-15 border-b-green/20 border-b-px">
+                          <div class="submenu__item-line absolute left-0 -bottom-[1px] w-full h-[1px] bg-green origin-left"></div>
+                          <div class="relative">
+                            <div class="absolute left-0 top-1/2 w-[2.5rem] h-[2.5rem] -translate-y-1/2">
+                              <div class="submenu__item-circle absolute-full border-px border-light-green border-opacity-20 rounded-full"></div>
+                              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                <div class="submenu__item-arrow w-[0.622rem] h-[0.661rem] -rotate-90 delay-100 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+                              </div>
+                            </div>
+                            <div class="submenu__item-title inline-block translate-x-[calc(2.5rem_+_1rem)] max-lg:text-16 max-lg:leading-[175%] align-bottom">Support</div>
+                          </div>
+                        </div>
+                                                                </div>
+                  </div>
+                </div>
+                                                        <div>
+                  <div class="menu__item lg:px-15 xl:px-20 lg:whitespace-nowrap">Demo</div>
+                </div>
+                                                        <div>
+                  <div class="menu__item lg:px-15 xl:px-20 lg:whitespace-nowrap">FAQ</div>
+                </div>
+                                                        <div>
+                  <div class="menu__item lg:px-15 xl:px-20 lg:whitespace-nowrap">Join Us</div>
+                </div>
+                                    </div>
+          <div class="menu__items flex lg:hidden flex-col items-start text-16 leading-[175%]">
+                          <div>
+                <div class="menu__item">Join Us</div>
+              </div>
+                          <div>
+                <div class="menu__item">QnA</div>
+              </div>
+                          <div>
+                <div class="menu__item">Professionals</div>
+              </div>
+                      </div>
+        </div>
+        <div class="menu__image relative w-full h-0 lg:hidden pt-[60.06%] rounded-5 overflow-hidden">
+          <div class="absolute-full">
+            <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="https://www.caeli-energie.com/wp-content/uploads/2024/10/b_00010-480x270.jpg"
+      data-srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/10/b_00010-480x270.jpg 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/10/b_00010-768x432.jpg 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/10/b_00010-1200x675.jpg 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/10/b_00010-1600x900.jpg 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/10/b_00010-1920x1080.jpg 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/10/b_00010-2560x1440.jpg 2560w,
+              "
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      85vw" >
+  </figure>
+</div>          </div>
+        </div>
+      </div>
+      <div class="lg:hidden">
+        <div class="button  max-lg:w-full   h-[6rem] inline-flex items-center justify-center gap-20 px-[3.5rem] md:px-[2.8rem] rounded-5  bg-green  border-px border-green text-beige body-16 cursor-pointer"  data-mode="green">
+  Contact us
+      <div class="button__arrows-wrapper relative w-[calc(2.25rem_-_1px)] h-[calc(2.25rem_-_1px)] -mx-[calc((2.25rem_-_0.9rem)_/_2)] overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+      <div class="absolute top-1/2 left-0 -translate-x-full -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+    </div>
+   </div>       </div>
     </div>
   </div>
 
-  <section id="mission" class="mission-section" aria-label="Our Mission">
-    <div class="container">
-      <div class="mission-content">
-        <span class="pill">Our Mission</span>
-        <h2 class="section-title">In Ghana’s <span class="hl">rural communities</span>, mobility isn’t just about <span class="hl">convenience</span>—it’s about access to <span class="hl">opportunity</span>, <span class="hl">safety</span>, and <span class="hl">dignity</span>.<br><span class="hl-strong">ORDA RIDES</span> exists to make sure <span class="hl">no one is left behind</span>.</h2>
+  <div class="header__button max-lg:hidden">
+    <div class="button   h-[6rem] inline-flex items-center justify-center gap-20 px-[3.5rem] md:px-[2.8rem] rounded-5  bg-green  border-px border-green text-beige body-16 cursor-pointer"  data-mode="green">
+  Contact us
+      <div class="button__arrows-wrapper relative w-[calc(2.25rem_-_1px)] h-[calc(2.25rem_-_1px)] -mx-[calc((2.25rem_-_0.9rem)_/_2)] overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+      <div class="absolute top-1/2 left-0 -translate-x-full -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+    </div>
+   </div>   </div>
+</header>
+        <div class="fade fixed top-0 left-0 w-full h-full bg-light-beige pointer-events-none opacity-0 z-transition"></div>
+
         
-        <div class="mission-mobile-image" aria-label="Mission highlight image">
-          <img src="../images/biker.jpg" alt="ORDA Rides mission" />
+        <div class="content" data-taxi role="document">
+                 <div data-taxi-view>
+      <div class="home">
+        <section class="home-cover relative h-[500vh] xl:h-[550vh] xl:min-h-[calc(550px_*_6)]">
+  <div class="sticky top-0 w-full h-[var(--vh)] min-h-[600px] bg-cover-background bg-cover overflow-hidden">
+
+    <div class="home-cover__first-section max-xl:relative w-full max-xl:h-full grid-w max-xl:content-start items-start gap-y-50 xl:gap-y-30 pt-[calc(1rem_+_var(--header-height,_5rem)_+_8rem)] xl:pt-[calc(1.5rem_+_var(--header-height,_6rem)_+_2.5rem)]">
+      <h1 class="home-cover__title col-span-full lg:col-start-4 xl:col-start-4 lg:col-end-22 xl:col-end-22 text-light-green body-50 md:body-100 xl:body-140 max-xl:font-black uppercase text-center">Your Rides<br>Your Order<br>Your Town</h1>
+              <div class="col-start-3 md:col-start-7 xl:col-start-19 col-end-23 md:col-end-20 xl:col-end-24 text-green max-xl:text-center">
+          <div class="home-cover__content">With Orda, you're not just choosing affordable, secure convenience — you're joining a nationwide movement that uplifts and empowers local communities like yours.</div>
         </div>
-                 <div class="mission-cta">
-           <a class="btn btn-read-more" href="mission/mission.html" aria-label="Read more about our mission">Read More</a>
-         </div>
+          </div>
+
+    <div class="home-cover__second-section absolute-full">
+      <div class="home-cover__air absolute left-1/2 top-1/2 w-[65rem] -translate-x-full -translate-y-[90%] rotate-[15deg] svg-wrapper">
+        <svg width="648" height="338" viewBox="0 0 648 338" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M644.544 151.582C634.727 168.692 489.791 226.812 343.54 108.692C179.977 -23.4179 71.4321 3.08206 71.4321 3.08206" stroke="url(#paint0_linear_0_139)" stroke-miterlimit="10"/>
+<path d="M644.529 160.282C629.628 179.712 491.617 231.032 353.781 124.212C195.492 1.55187 92.9802 16.2219 65.4276 16.7319" stroke="url(#paint1_linear_0_139)" stroke-width="1.44" stroke-miterlimit="10"/>
+<path d="M644.501 169.382C624.53 191.132 493.268 235.712 363.993 140.142C210.876 26.9519 114.544 29.7619 59.4385 30.7819" stroke="url(#paint2_linear_0_139)" stroke-width="1.89" stroke-miterlimit="10"/>
+<path d="M644.486 178.692C619.431 202.762 494.758 240.662 374.233 156.282C226.112 52.5923 136.106 43.5023 53.4484 45.0423" stroke="url(#paint3_linear_0_139)" stroke-width="2.33" stroke-miterlimit="10"/>
+<path d="M644.471 188.032C614.347 214.432 496.043 245.732 384.459 172.452C241.145 78.3119 157.654 57.2719 47.4438 59.3219" stroke="url(#paint4_linear_0_139)" stroke-width="2.78" stroke-miterlimit="10"/>
+<path d="M644.455 197.383C609.248 226.103 497.08 250.943 394.699 188.633C255.914 104.163 179.216 71.0627 41.4532 73.6127" stroke="url(#paint5_linear_0_139)" stroke-width="3.22" stroke-miterlimit="10"/>
+<path d="M644.442 206.622C604.165 237.662 497.841 256.212 404.942 204.702C270.378 130.092 200.766 84.7421 35.4504 87.8121" stroke="url(#paint6_linear_0_139)" stroke-width="3.67" stroke-miterlimit="10"/>
+<path d="M644.428 215.852C599.067 249.212 498.294 261.712 415.169 220.762C284.403 156.332 222.33 98.4019 29.4613 101.982" stroke="url(#paint7_linear_0_139)" stroke-width="4.11" stroke-miterlimit="10"/>
+<path d="M644.398 224.992C593.968 260.672 498.454 267.462 425.394 236.732C297.916 183.102 243.877 111.982 23.4559 116.072" stroke="url(#paint8_linear_0_139)" stroke-width="4.56" stroke-miterlimit="10"/>
+<path d="M644.383 234.012C588.869 272.012 498.439 273.572 435.62 252.572C310.815 210.852 265.44 125.432 17.4661 130.032" stroke="url(#paint9_linear_0_139)" stroke-width="5" stroke-miterlimit="10"/>
+<path d="M645.611 242.622C588.197 279.172 499.535 281.232 429.572 258.432C300.852 216.142 237.873 143.972 17.4518 148.062" stroke="url(#paint10_linear_0_139)" stroke-width="4.56" stroke-miterlimit="10"/>
+<path d="M646.823 251.203C587.51 286.303 500.528 288.983 423.495 264.253C290.713 221.613 210.291 162.473 17.4222 166.053" stroke="url(#paint11_linear_0_139)" stroke-width="4.11" stroke-miterlimit="10"/>
+<path d="M646.575 259.742C585.364 293.402 500.134 296.602 415.972 270.032C279.275 226.862 181.263 180.942 15.9476 184.002" stroke="url(#paint12_linear_0_139)" stroke-width="3.67" stroke-miterlimit="10"/>
+<path d="M645.201 268.263C582.076 300.473 498.615 304.183 407.308 275.793C266.696 232.063 151.095 199.373 13.3319 201.933" stroke="url(#paint13_linear_0_139)" stroke-width="3.22" stroke-miterlimit="10"/>
+<path d="M643.813 276.772C578.788 307.532 497.095 311.732 398.644 281.542C254.132 237.222 120.912 217.812 10.7016 219.852" stroke="url(#paint14_linear_0_139)" stroke-width="2.78" stroke-miterlimit="10"/>
+<path d="M642.426 285.312C575.502 314.622 495.591 319.302 389.968 287.322C241.584 242.392 90.7311 236.272 8.07324 237.812" stroke="url(#paint15_linear_0_139)" stroke-width="2.33" stroke-miterlimit="10"/>
+<path d="M641.038 294.252C572.215 322.122 494.174 327.132 381.304 293.502C229.151 247.802 60.563 255.142 5.45776 256.162" stroke="url(#paint16_linear_0_139)" stroke-width="1.89" stroke-miterlimit="10"/>
+<path d="M639.666 304.722C568.943 331.142 492.67 336.652 372.642 301.212C216.574 254.932 30.3817 275.532 2.82904 276.042" stroke="url(#paint17_linear_0_139)" stroke-width="1.44" stroke-miterlimit="10"/>
+<path d="M638.277 316.613C565.655 341.583 491.149 347.583 363.978 310.343C204.009 263.493 0.213013 297.343 0.213013 297.343" stroke="url(#paint18_linear_0_139)" stroke-miterlimit="10"/>
+<defs>
+<linearGradient id="paint0_linear_0_139" x1="644.544" y1="152.069" x2="15.9272" y2="152.069" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_139" x1="644.529" y1="161.831" x2="9.34255" y2="161.831" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint2_linear_0_139" x1="644.501" y1="171.882" x2="2.77615" y2="171.882" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint3_linear_0_139" x1="644.486" y1="182.094" x2="-3.79264" y2="182.094" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint4_linear_0_139" x1="644.471" y1="192.356" x2="-10.3773" y2="192.356" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint5_linear_0_139" x1="644.455" y1="202.672" x2="-16.9465" y2="202.672" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint6_linear_0_139" x1="644.442" y1="212.944" x2="-23.5295" y2="212.944" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint7_linear_0_139" x1="644.428" y1="223.296" x2="-30.0972" y2="223.296" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint8_linear_0_139" x1="644.398" y1="233.698" x2="-36.6813" y2="233.698" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint9_linear_0_139" x1="644.383" y1="244.183" x2="-43.2498" y2="244.183" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint10_linear_0_139" x1="645.611" y1="253.144" x2="-43.3844" y2="253.144" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint11_linear_0_139" x1="646.823" y1="262.131" x2="-43.5342" y2="262.131" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint12_linear_0_139" x1="646.575" y1="271.063" x2="-45.1277" y2="271.063" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint13_linear_0_139" x1="645.201" y1="279.98" x2="-47.8636" y2="279.98" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint14_linear_0_139" x1="643.813" y1="288.893" x2="-50.6142" y2="288.893" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint15_linear_0_139" x1="642.426" y1="297.839" x2="-53.3628" y2="297.839" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint16_linear_0_139" x1="641.038" y1="307.03" x2="-56.0971" y2="307.03" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint17_linear_0_139" x1="639.666" y1="317.312" x2="-58.8475" y2="317.312" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint18_linear_0_139" x1="638.277" y1="328.566" x2="-61.5824" y2="328.566" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>      </div>
+      <div class="home-cover__air absolute left-1/2 top-1/2 w-[65rem] -translate-x-[2.5%] -translate-y-[12.5%] svg-wrapper">
+        <svg width="649" height="338" viewBox="0 0 649 338" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.82877 186.668C13.646 169.558 158.582 111.438 304.833 229.557C468.396 361.667 576.941 335.167 576.941 335.167" stroke="url(#paint0_linear_0_159)" stroke-miterlimit="10"/>
+<path d="M3.84434 177.968C18.7455 158.538 156.757 107.218 294.593 214.038C452.882 336.698 555.393 322.028 582.946 321.518" stroke="url(#paint1_linear_0_159)" stroke-width="1.44" stroke-miterlimit="10"/>
+<path d="M3.87189 168.868C23.8424 147.118 155.105 102.538 284.38 198.108C437.497 311.298 533.829 308.488 588.934 307.468" stroke="url(#paint2_linear_0_159)" stroke-width="1.89" stroke-miterlimit="10"/>
+<path d="M3.88844 159.557C28.9429 135.487 153.616 97.5873 274.141 181.967C422.262 285.657 512.268 294.747 594.926 293.207" stroke="url(#paint3_linear_0_159)" stroke-width="2.33" stroke-miterlimit="10"/>
+<path d="M3.90158 150.218C34.0254 123.818 152.329 92.5182 263.913 165.798C407.227 259.938 490.718 280.978 600.929 278.928" stroke="url(#paint4_linear_0_159)" stroke-width="2.78" stroke-miterlimit="10"/>
+<path d="M3.91728 140.867C39.125 112.147 151.293 87.3074 253.673 149.617C392.459 234.087 469.156 267.187 606.919 264.637" stroke="url(#paint5_linear_0_159)" stroke-width="3.22" stroke-miterlimit="10"/>
+<path d="M3.93083 131.627C44.2079 100.587 150.532 82.0374 243.431 133.547C377.995 208.157 447.607 253.507 612.923 250.437" stroke="url(#paint6_linear_0_159)" stroke-width="3.67" stroke-miterlimit="10"/>
+<path d="M3.945 122.398C49.306 89.0382 150.079 76.5382 233.204 117.488C363.97 181.918 426.044 239.848 618.912 236.268" stroke="url(#paint7_linear_0_159)" stroke-width="4.11" stroke-miterlimit="10"/>
+<path d="M3.97547 113.258C54.4058 77.5775 149.92 70.7875 222.979 101.518C350.458 155.147 404.497 226.267 624.917 222.177" stroke="url(#paint8_linear_0_159)" stroke-width="4.56" stroke-miterlimit="10"/>
+<path d="M3.98927 104.238C59.5036 66.2379 149.933 64.6779 212.752 85.6779C337.557 127.398 382.933 212.818 630.906 208.218" stroke="url(#paint9_linear_0_159)" stroke-width="5" stroke-miterlimit="10"/>
+<path d="M2.76268 95.6279C60.1761 59.0779 148.838 57.0179 218.801 79.8179C347.521 122.108 410.501 194.278 630.922 190.188" stroke="url(#paint10_linear_0_159)" stroke-width="4.56" stroke-miterlimit="10"/>
+<path d="M1.55003 87.0475C60.8627 51.9475 147.845 49.2674 224.878 73.9974C357.66 116.637 438.082 175.777 630.951 172.197" stroke="url(#paint11_linear_0_159)" stroke-width="4.11" stroke-miterlimit="10"/>
+<path d="M1.79809 78.5081C63.0099 44.8481 148.239 41.6481 232.402 68.2181C369.098 111.388 467.11 157.308 632.426 154.248" stroke="url(#paint12_linear_0_159)" stroke-width="3.67" stroke-miterlimit="10"/>
+<path d="M3.17203 69.9874C66.2976 37.7774 149.759 34.0674 241.065 62.4574C381.677 106.187 497.278 138.877 635.042 136.317" stroke="url(#paint13_linear_0_159)" stroke-width="3.22" stroke-miterlimit="10"/>
+<path d="M4.55912 61.4779C69.5839 30.7179 151.278 26.5179 249.728 56.7079C394.24 101.028 527.46 120.438 637.67 118.398" stroke="url(#paint14_linear_0_159)" stroke-width="2.78" stroke-miterlimit="10"/>
+<path d="M5.94728 52.9375C72.8712 23.6275 152.783 18.9475 258.406 50.9275C406.79 95.8575 557.643 101.977 640.3 100.437" stroke="url(#paint15_linear_0_159)" stroke-width="2.33" stroke-miterlimit="10"/>
+<path d="M7.3356 43.9976C76.1587 16.1276 154.2 11.1176 267.069 44.7476C419.222 90.4476 587.811 83.1076 642.916 82.0876" stroke="url(#paint16_linear_0_159)" stroke-width="1.89" stroke-miterlimit="10"/>
+<path d="M8.70839 33.5285C79.4307 7.10849 155.704 1.59849 275.732 37.0385C431.8 83.3185 617.992 62.7184 645.545 62.2084" stroke="url(#paint17_linear_0_159)" stroke-width="1.44" stroke-miterlimit="10"/>
+<path d="M10.0958 21.6385C82.7172 -3.33153 157.223 -9.33152 284.395 27.9085C444.364 74.7585 648.16 40.9084 648.16 40.9084" stroke="url(#paint18_linear_0_159)" stroke-miterlimit="10"/>
+<defs>
+<linearGradient id="paint0_linear_0_159" x1="3.82876" y1="186.181" x2="632.446" y2="186.181" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint1_linear_0_159" x1="3.84432" y1="176.419" x2="639.031" y2="176.419" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint2_linear_0_159" x1="3.87191" y1="166.368" x2="645.596" y2="166.368" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint3_linear_0_159" x1="3.88845" y1="156.155" x2="652.167" y2="156.155" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint4_linear_0_159" x1="3.90157" y1="145.894" x2="658.75" y2="145.894" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint5_linear_0_159" x1="3.91726" y1="135.578" x2="665.319" y2="135.578" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint6_linear_0_159" x1="3.93081" y1="125.306" x2="671.903" y2="125.306" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint7_linear_0_159" x1="3.94497" y1="114.954" x2="678.47" y2="114.954" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint8_linear_0_159" x1="3.97549" y1="104.551" x2="685.055" y2="104.551" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint9_linear_0_159" x1="3.98929" y1="94.0667" x2="691.622" y2="94.0667" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint10_linear_0_159" x1="2.76266" y1="85.1056" x2="691.758" y2="85.1056" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint11_linear_0_159" x1="1.55002" y1="76.1189" x2="691.907" y2="76.1188" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint12_linear_0_159" x1="1.79807" y1="67.1871" x2="693.501" y2="67.1871" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint13_linear_0_159" x1="3.17203" y1="58.2698" x2="696.237" y2="58.2697" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint14_linear_0_159" x1="4.55911" y1="49.3573" x2="698.986" y2="49.3573" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint15_linear_0_159" x1="5.9473" y1="40.411" x2="701.736" y2="40.411" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint16_linear_0_159" x1="7.33561" y1="31.2194" x2="704.471" y2="31.2193" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint17_linear_0_159" x1="8.70841" y1="20.9382" x2="707.222" y2="20.9382" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint18_linear_0_159" x1="10.0957" y1="9.68501" x2="709.955" y2="9.68496" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>      </div>
+      <div class="home-cover__console absolute-full">
+        <div class="absolute left-1/2 -bottom-20 xl:-bottom-[6.5rem] w-[50rem] md:w-[77.5rem] -translate-x-1/2">
+          <div class="absolute right-[5%] top-[36%] w-[33%] translate-x-full -z-1">
+            <img class="w-full h-full" src="https://www.caeli-energie.com/wp-content/themes/beaucoup/resources/images/console-shadow.webp" alt="Console shadow">
+          </div>
+          <img class="w-full h-full" src="images/group.png" alt="Console">
+        </div>
+      </div>
+      <div class="home-cover__plant absolute-full max-xl:hidden">
+        <div class="absolute -left-20 -bottom-75 w-[22.5rem]">
+          <div class="absolute right-[30%] top-[66%] w-[116%] translate-x-full -z-1">
+            <img class="w-full h-full" src="https://www.caeli-energie.com/wp-content/themes/beaucoup/resources/images/plant-shadow.webp" alt="Plant shadow">
+          </div>
+                      <img class="w-full h-full" src="images/moto.png" alt="Plant">
+        </div>
+      </div>
+      <div class="home-cover__shelf absolute-full max-xl:hidden">
+        <div class="absolute -right-50 top-1/2 -translate-y-full w-[42.5rem]">
+          <div class="absolute left-0 top-[42%] w-[90%] -z-1">
+            <img class="w-full h-full" src="https://www.caeli-energie.com/wp-content/themes/beaucoup/resources/images/shelf-shadow.webp" alt="Shelf shadow">
+          </div>
+          <img class="w-full h-full" src="images/delivery.png" alt="Shelf">
+        </div>
       </div>
     </div>
 
-    <div class="flex-gallery" role="list" aria-label="Mission gallery">
-      <div class="card is-active" role="listitem">
-        <div class="card__inner">
-          <picture>
-            <img src="images/orda/biker.jpg" alt="ORDA rider on a motorbike" />
-          </picture>
+    <div class="home-cover__third-section absolute-full p-container">
+      <div class="relative w-full h-full grid-w !px-0 pt-30 xl:pt-75 pb-30 bg-white" style="clip-path: inset(var(--inset-top-bottom, 0%) var(--inset-left-right, 0%) round 1rem);">
+        <div class="absolute left-1/2 top-1/2 max-md:hidden -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">
+          <div class="w-[205.317rem] text-light-green/[8%] svg-wrapper"><svg width="2092" height="2160" viewBox="0 0 2092 2160" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M825.234 367.254L825.231 0.50397C1069.26 1.02729 1266.87 198.897 1266.87 442.5L1266.88 809.25C1023.1 808.981 825.235 611.014 825.234 367.254Z" stroke="currentColor"/>
+  <path d="M1552.49 532.43L1870.11 349.054C1991.67 560.653 1919.11 830.724 1708.15 952.525L1390.53 1135.9C1268.88 924.651 1341.39 654.31 1552.49 532.43Z" stroke="currentColor"/>
+  <path d="M1773.06 1244.85L2090.67 1428.22C1968.2 1639.3 1698.04 1711.5 1487.07 1589.69L1169.46 1406.32C1291.58 1195.34 1561.96 1122.97 1773.06 1244.85Z" stroke="currentColor"/>
+  <path d="M1266.36 1792.09L1266.36 2158.84C1022.33 2158.31 824.724 1960.44 824.725 1716.84L824.728 1350.09C1068.5 1350.36 1266.37 1548.33 1266.36 1792.09Z" stroke="currentColor"/>
+  <path d="M539.124 1626.91L221.51 1810.28C99.9487 1598.69 172.505 1328.62 383.471 1206.81L701.086 1023.44C822.739 1234.69 750.226 1505.03 539.124 1626.91Z" stroke="currentColor"/>
+  <path d="M318.535 914.491L0.920609 731.116C123.391 520.042 393.557 447.843 604.523 569.644L922.138 753.02C800.016 964 529.637 1036.37 318.535 914.491Z" stroke="currentColor"/>
+</svg></div>
         </div>
-      </div>
-      <div class="card is-active" role="listitem">
-        <div class="card__inner">
-          <picture>
-            <img src="images/orda/makola.jpg" alt="Makola market scene" />
-          </picture>
-        </div>
-      </div>
-      <div class="card is-active" role="listitem">
-        <div class="card__inner">
-          <picture>
-            <img src="images/okada.png" alt="Okada motorbike" />
-          </picture>
-        </div>
-      </div>
-      <div class="card is-active" role="listitem">
-        <div class="card__inner">
-          <picture>
-            <img src="images/orda/market.jpeg" alt="Local market" />
-          </picture>
-        </div>
-      </div>
-      <div class="card is-active" role="listitem">
-        <div class="card__inner">
-          <picture>
-            <img src="images/woman.png" alt="Business owner portrait" />
-          </picture>
-        </div>
-      </div>
-      <div class="card is-active" role="listitem">
-        <div class="card__inner">
-          <picture>
-            <img src="images/orda/googlemaps.png" alt="Map view" />
-          </picture>
-        </div>
-      </div>
-      <div class="card is-active" role="listitem">
-        <div class="card__inner">
-          <picture>
-            <img src="images/prince.jpg" alt="Community member portrait" />
-          </picture>
-        </div>
-      </div>
-      <div class="card is-active" role="listitem">
-        <div class="card__inner">
-          <picture>
-            <img src="images/guy.jpg" alt="Rider portrait" />
-          </picture>
-        </div>
-      </div>
-      <div class="card is-active" role="listitem">
-        <div class="card__inner">
-          <picture>
-            <img src="images/moto.png" alt="Motorbike" />
-          </picture>
-        </div>
-      </div>
-           </div>
-   </section>
-
-   <section id="services" class="features-section" aria-label="Key Features">
-    <div class="container">
-      <div class="features-content">
-        <span class="pill">Our Services</span>
-        <h2 class="section-title">Move faster. Spend less. Stay informed.</h2>
-        <p class="section-sub">Everything you need for safer, smarter rides—plus reliable delivery and hyper‑local news built for your community.</p>
-      </div>
-    </div>
-    <div class="features-split">
-      <div class="fs-left" role="tablist" aria-label="Services tabs">
-        <button type="button" class="fs-tab is-active" role="tab" aria-selected="true" aria-controls="fs-rides" data-key="rides">1. Order Rides</button>
-        <button type="button" class="fs-tab" role="tab" aria-selected="false" aria-controls="fs-delivery" data-key="delivery">2. Get Your Delivery</button>
-        <button type="button" class="fs-tab" role="tab" aria-selected="false" aria-controls="fs-news" data-key="news">3. Stay on Local News</button>
-      </div>
-      <div class="fs-right">
-        <article class="fs-panel is-active" id="fs-rides" role="tabpanel" aria-label="Rides">
-          <div class="fs-bg" style="background-image:url('images/orda/biker.jpg');"></div>
-          <div class="fs-bubble">
-            <strong>Order rides in seconds</strong>
-            <p>Upfront pricing, live tracking, and built‑in safety sharing for peace of mind.</p>
+        <h2 class="home-cover__inner col-start-2 col-end-24 flex flex-col items-center gap-y-15 xl:gap-y-20 pb-75">
+          <span class="home-cover__surtitle text-green body-12 uppercase">Find out more</span>
+          <div class="home-cover__title xl:flex-1 flex items-center justify-center text-light-green font-black uppercase leading-none">
+            <span style="font-size: clamp(4rem, 12vw, 20rem); line-height: 0.9; white-space: nowrap;">QUALITY RIDES</span>
           </div>
-        </article>
-        <article class="fs-panel" id="fs-delivery" role="tabpanel" aria-label="Delivery">
-          <div class="fs-bg" style="background-image:url('images/okada.png');"></div>
-          <div class="fs-bubble">
-            <strong>Deliver anything — fast</strong>
-            <p>Door‑to‑door parcels with OTP handoff and photo proof.</p>
-          </div>
-        </article>
-        <article class="fs-panel" id="fs-news" role="tabpanel" aria-label="Local News">
-          <div class="fs-bg" style="background-image:url('images/orda/googlemaps.png');"></div> 
-          <div class="fs-bubble">
-            <strong>Stay ahead with local alerts</strong>
-            <p>Road closures, market info, and safety updates tailored to your area.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-  
-  <section id="earn" class="earn-section" aria-label="Earn With ORDA">
-    <div class="container earn-header">
-      <div class="earn-content">
-        <span class="pill">Earn With ORDA</span>
-        <h2 class="section-title">Drive, deliver, and grow your income</h2>
-      </div>
-    </div>
-
-    <!-- Ride For Us subsection -->
-    <section class="rfu rfu--rider" aria-label="Ride For Us">
-      <div class="rfu-inner">
-        <h3 class="rfu-title">Become A Rider</h3>
-        <div class="rfu-card">
-          <div class="rfu-quote">
-            <blockquote>
-              <p>“With ORDA, I can plan ahead. I’m not surprised anymore.”</p>
-              <footer>
-                <div class="rfu-person-meta">
-                  <strong>Kweku Prosper</strong>
-                  <span>ORDA Rider</span>
+        </h2>
+        <div class="home-cover__slider absolute-full col-span-full max-xl:hidden grid-w !px-0">
+          <div class="col-start-2 col-end-12 h-full py-50 text-center">
+            <div class="home-cover__wrapper w-full h-full flex flex-col gap-y-20 py-100 bg-[#F2F7F5] rounded-8">
+              <div class="grid grid-cols-10 gap-x-grid text-green">
+                <div class="col-start-3 col-end-9 flex flex-col items-center gap-y-20">
+                  <div class="flex gap-x-30 body-15">
+                                          <div class="home-cover__counter-wrapper py-15  pr-15  cursor-pointer group">
+                        <div class="w-[0.781rem] h-[0.781rem] home-cover__counter  a  bg-light-green border-px border-light-green rounded-full group-hover:bg-light-green"></div>
+                      </div>
+                                          <div class="home-cover__counter-wrapper py-15  px-15  cursor-pointer group">
+                        <div class="w-[0.781rem] h-[0.781rem] home-cover__counter  bg-light-green border-px border-light-green rounded-full group-hover:bg-light-green"></div>
+                      </div>
+                                          <div class="home-cover__counter-wrapper py-15  px-15  cursor-pointer group">
+                        <div class="w-[0.781rem] h-[0.781rem] home-cover__counter  bg-light-green border-px border-light-green rounded-full group-hover:bg-light-green"></div>
+                      </div>
+                                          <div class="home-cover__counter-wrapper py-15  pl-15  cursor-pointer group">
+                        <div class="w-[0.781rem] h-[0.781rem] home-cover__counter  bg-light-green border-px border-light-green rounded-full group-hover:bg-light-green"></div>
+                      </div>
+                                      </div>
+                  <div class="relative">
+                                          <div class="home-cover__title absolute left-1/2 top-0 min-w-full -translate-x-1/2 body-50 font-black uppercase">Unmatched Access</div>
+                                          <div class="home-cover__title absolute left-1/2 top-0 min-w-full -translate-x-1/2 body-50 font-black uppercase">Your Trust is Key</div>
+                                          <div class="home-cover__title absolute left-1/2 top-0 min-w-full -translate-x-1/2 body-50 font-black uppercase">Ride More, Spend Less</div>
+                                          <div class="home-cover__title absolute left-1/2 top-0 min-w-full -translate-x-1/2 body-50 font-black uppercase">Supporting Local Connections</div>
+                                      </div>
                 </div>
-              </footer>
-            </blockquote>
-          </div>
-          <div class="rfu-person">
-            <img src="../images/okada.png" alt="ORDA rider" />
-          </div>
-        </div>
-
-        <div class="rfu-meta">
-          <ul class="rfu-benefits" aria-label="Benefits of riding with ORDA">
-            <li class="benefit">
-              <span class="benefit-icon" aria-hidden="true">✓</span>
-              <div class="benefit-text">
-                <strong class="benefit-title">Instant payouts</strong>
-                <span class="benefit-desc">Cash-out the same day via Mobile Money.</span>
               </div>
-            </li>
-            <li class="benefit">
-              <span class="benefit-icon" aria-hidden="true">✓</span>
-              <div class="benefit-text">
-                <strong class="benefit-title">Your schedule</strong>
-                <span class="benefit-desc">Work when you want with no fixed shifts.</span>
+              <div class="flex-1 grid grid-cols-10 gap-x-grid text-gray-green">
+                <div class="relative col-start-3 col-end-9">
+                                      <div class="home-cover__content absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">Our platform delivers a reliable way to book a ride anytime, anywhere — your destination is never out of reach. From busy mornings to late nights, your ride is ready when you are.</div>
+                                      <div class="home-cover__content absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">Your rides stay within the community, where trust and safety come first. Every driver and rider is a familiar face or a neighbor, ensuring every trip feels personal, secure, and worry-free.</div>
+                                      <div class="home-cover__content absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">Save on every trip without compromising comfort or convenience — smart pricing that keeps your wallet happy.</div>
+                                      <div class="home-cover__content absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2">Every ride strengthens your neighborhood by keeping transportation local. Orda Rides helps neighbors support each other, reduce traffic, and build a safer, more connected community.</div>
+                                  </div>
               </div>
-            </li>
-            <li class="benefit">
-              <span class="benefit-icon" aria-hidden="true">✓</span>
-              <div class="benefit-text">
-                <strong class="benefit-title">Safety-first</strong>
-                <span class="benefit-desc">In‑app SOS, rider training, and 24/7 support.</span>
-              </div>
-            </li>
-            <li class="benefit">
-              <span class="benefit-icon" aria-hidden="true">✓</span>
-              <div class="benefit-text">
-                <strong class="benefit-title">Boosted earnings</strong>
-                <span class="benefit-desc">Bonuses for peak hours and top ratings.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="rfu-cta">
-          <a href="#apply" class="btn btn-dark">Ride For Us</a>
-        </div>
-
-        <div class="rfu-fineprint">
-          <a href="#terms">Terms apply</a>
-          <span aria-hidden="true">·</span>
-          <a href="#faqs">FAQs</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Enlist Your Business subsection (mirrors RFU styles) -->
-    <section class="rfu rfu--business" aria-label="Enlist Your Business">
-      <div class="rfu-inner">
-        <h3 class="rfu-title">Enlist Your Business</h3>
-        <div class="rfu-card">
-          <div class="rfu-quote">
-            <blockquote>
-              <p>“ORDA helps us reach more customers and deliver on time.”</p>
-              <footer>
-                <div class="rfu-person-meta">
-                  <strong>Akosua</strong>
-                  <span>Local merchant</span>
-                </div>
-              </footer>
-            </blockquote>
-          </div>
-          <div class="rfu-person">
-            <img src="../images/woman.png" alt="Business owner" />
-          </div>
-        </div>
-
-        <div class="rfu-meta">
-          <ul class="rfu-benefits" aria-label="Benefits of enlisting your business">
-            <li class="benefit">
-              <span class="benefit-icon" aria-hidden="true">✓</span>
-              <div class="benefit-text">
-                <strong class="benefit-title">Grow orders</strong>
-                <span class="benefit-desc">Offer delivery and reach new customers nearby.</span>
-              </div>
-            </li>
-            <li class="benefit">
-              <span class="benefit-icon" aria-hidden="true">✓</span>
-              <div class="benefit-text">
-                <strong class="benefit-title">Fast payouts</strong>
-                <span class="benefit-desc">Same‑day settlements to your Mobile Money wallet.</span>
-              </div>
-            </li>
-            <li class="benefit">
-              <span class="benefit-icon" aria-hidden="true">✓</span>
-              <div class="benefit-text">
-                <strong class="benefit-title">Smart tools</strong>
-                <span class="benefit-desc">Dashboard to track sales, deliveries, and performance.</span>
-              </div>
-            </li>
-            <li class="benefit">
-              <span class="benefit-icon" aria-hidden="true">✓</span>
-              <div class="benefit-text">
-                <strong class="benefit-title">Trusted riders</strong>
-                <span class="benefit-desc">Verified riders with OTP handoff and photo proof.</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="rfu-cta">
-          <a href="#partner" class="btn btn-dark">Become a partner</a>
-        </div>
-
-        <div class="rfu-fineprint">
-          <a href="#partner-terms">Partner terms</a>
-          <span aria-hidden="true">·</span>
-          <a href="#partner-faqs">Partner FAQs</a>
-        </div>
-      </div>
-    </section>
-  </section>
-
-
-
-  <section id="faqs" class="faq-section" aria-label="Frequently Asked Questions">
-    <div class="container">
-      <h2 class="faq-title">FAQs</h2>
-      <div class="faq-list" role="list">
-        <article class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq1" id="q1">How do I book a ride with ORDA RIDES?</button>
-          <div class="faq-answer" id="faq1" role="region" aria-labelledby="q1" hidden>
-            <p>Use the ORDA app, USSD, or SMS.</p>
-            <ol>
-              <li><strong>App</strong>: Open the app → enter pickup and destination → choose vehicle → confirm price → request.</li>
-              <li><strong>USSD</strong>: Dial the ORDA short code → follow prompts to share pickup/destination → confirm request.</li>
-              <li><strong>SMS</strong>: Text your pickup and destination in the format “Ride: From [pickup] to [destination]” → reply to confirm.</li>
-            </ol>
-          </div>
-        </article>
-
-        <article class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq2" id="q2">What types of vehicles are available?</button>
-          <div class="faq-answer" id="faq2" role="region" aria-labelledby="q2" hidden>
-            <p>Choose based on your trip:</p>
-            <ul>
-              <li><strong>Motorbike</strong>: Fastest for one passenger and small parcels.</li>
-              <li><strong>Tricycle</strong>: Great for short trips and medium cargo.</li>
-              <li><strong>Car</strong>: Comfortable rides, families, and weather protection.</li>
-            </ul>
-          </div>
-        </article>
-
-        <article class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq3" id="q3">Can I schedule a ride or delivery in advance?</button>
-          <div class="faq-answer" id="faq3" role="region" aria-labelledby="q3" hidden>
-            <p>Yes. You can schedule rides and deliveries from now up to 24 hours ahead. Pick a time slot in the app or follow the USSD/SMS prompts for scheduling.</p>
-          </div>
-        </article>
-
-        <article class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq4" id="q4">How do I send a package using ORDA RIDES?</button>
-          <div class="faq-answer" id="faq4" role="region" aria-labelledby="q4" hidden>
-            <p>Select Delivery, enter pickup and drop-off, choose the package size to match a bike, tricycle, or car, then confirm. Track your delivery live with OTP handoff and photo proof.</p>
-          </div>
-        </article>
-
-        <article class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq5" id="q5">What payment options are supported?</button>
-          <div class="faq-answer" id="faq5" role="region" aria-labelledby="q5" hidden>
-            <p>We support Mobile Money, cash, card (where available), and cash-on-delivery for parcels.</p>
-          </div>
-        </article>
-
-        <article class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq6" id="q6">Is ORDA RIDES available offline?</button>
-          <div class="faq-answer" id="faq6" role="region" aria-labelledby="q6" hidden>
-            <p>Yes. You can request rides via USSD or SMS in areas with limited internet connectivity.</p>
-          </div>
-        </article>
-
-        <article class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq7" id="q7">How are drivers and riders verified?</button>
-          <div class="faq-answer" id="faq7" role="region" aria-labelledby="q7" hidden>
-            <p>We verify IDs, rider licenses, and conduct background checks. Community references and safety training are required before activation.</p>
-          </div>
-        </article>
-
-        <article class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq8" id="q8">Can I track my ride or delivery in real time?</button>
-          <div class="faq-answer" id="faq8" role="region" aria-labelledby="q8" hidden>
-            <p>Yes. See GPS location, driver details, and ETA in-app. You’ll also receive SMS or in-app notifications at key stages.</p>
-          </div>
-        </article>
-
-        <article class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq9" id="q9">How does ORDA RIDES keep me informed about local news?</button>
-          <div class="faq-answer" id="faq9" role="region" aria-labelledby="q9" hidden>
-            <p>We provide hyper‑local alerts (road closures, market info, safety updates) in English or local languages, sourced from verified partners and community reporters.</p>
-          </div>
-        </article>
-
-        <article class="faq-item" role="listitem">
-          <button class="faq-question" aria-expanded="false" aria-controls="faq10" id="q10">How can I become a driver or delivery rider with ORDA RIDES?</button>
-          <div class="faq-answer" id="faq10" role="region" aria-labelledby="q10" hidden>
-            <p>Apply in the app or on our site. You’ll submit documents, complete safety training, and can start earning with flexible hours and instant payouts.</p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <section id="waitlist" class="waitlist-section inquiry" aria-label="Inquiries">
-    <div class="container">
-      <div class="inquiry-wrap">
-        <div class="inquiry-grid">
-          <div class="inquiry-left">
-            <h2 class="inquiry-title">Let’s talk</h2>
-            <p class="inquiry-sub">Questions, partnerships, or press? Send us a message and we’ll get back to you fast.</p>
-            <form class="inq-form" action="#" method="post">
-          <div class="form-row">
-            <label class="field">
-              <span class="label">Full name</span>
-              <input type="text" name="name" placeholder="Your name" required>
-            </label>
-            <label class="field">
-              <span class="label">Phone</span>
-              <input type="tel" name="phone" placeholder="+233 …" required>
-            </label>
-          </div>
-          <div class="form-row">
-            <label class="field">
-              <span class="label">Email (optional)</span>
-              <input type="email" name="email" placeholder="you@example.com">
-            </label>
-            <label class="field">
-              <span class="label">Company/Org (optional)</span>
-              <input type="text" name="company" placeholder="Business name">
-            </label>
-          </div>
-          <label class="field">
-            <span class="label">Message</span>
-            <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
-          </label>
-
-          <div class="form-actions">
-            <button type="submit" class="btn btn-dark btn-send">Send message</button>
-            <div class="form-stores">
-              <a class="store-badge badge-apple" href="#app-store" aria-label="Download on the App Store">
-                <svg class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#ffffff" d="M16.365 12.213c-.02-2.14 1.753-3.167 1.833-3.218-1-1.459-2.552-1.658-3.103-1.684-1.317-.134-2.563.775-3.23.775-.667 0-1.692-.756-2.785-.735-1.431.021-2.75.834-3.487 2.115-1.49 2.582-.38 6.391 1.07 8.48.709 1.02 1.553 2.165 2.662 2.125 1.071-.041 1.475-.685 2.768-.685 1.293 0 1.655.685 2.787.664 1.144-.02 1.867-1.04 2.574-2.064.812-1.187 1.145-2.335 1.165-2.393-.025-.011-2.236-.857-2.254-3.295z"/><path fill="#ffffff" d="M14.56 5.502c.586-.712.981-1.7.874-2.686-.846.034-1.88.564-2.49 1.276-.545.632-1.02 1.64-.894 2.604.95.074 1.925-.482 2.51-1.194z"/></svg>
-                <span class="label"><small>Download on the</small><strong>App Store</strong></span>
-              </a>
-              <a class="store-badge badge-google" href="#google-play" aria-label="Get it on Google Play">
-                <svg class="logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#ffffff" d="M3.6 1.8l10.2 10.2L3.6 22.2c-.23-.15-.36-.41-.36-.71V2.51c0-.3.13-.56.36-.71z"/><path fill="#3ddc84" d="M14.5 12.01l2.41 2.41-9.65 5.58c-.36.21-.79.2-1.13-.02l8.37-7.97z"/><path fill="#f4b400" d="M19.31 9.93l-2.42 2.42L8.12 4.16l5.05-2.92c.38-.22.86-.21 1.24.02l4.9 2.86c.53.31.53 1.08 0 1.39z"/><path fill="#4285f4" d="M21.2 11.98c.3.17.3.61 0 .78l-2.02 1.18-2.42-2.42 2.42-2.42 2.02 1.17z"/></svg>
-                <span class="label"><small>Get it on</small><strong>Google Play</strong></span>
-              </a>
             </div>
           </div>
-            </form>
-          </div>
-          <div class="inquiry-right">
-            <div class="phone-frame">
-              <div class="notch"><span class="cam"></span><span class="spk"></span></div>
-              <div class="screen">
-                <div class="status">
-                  <span class="time">9:41</span>
-                  <span class="dots"></span>
-                </div>
-                <div class="app">
-                  <div class="app-header">
-                    <div class="brand"><span class="dot"></span><h4>ORDA</h4></div>
-                    <div class="wallet" aria-label="Wallet balance">GHS 62.50</div>
-                  </div>
-
-                  <div class="app-segs" role="tablist" aria-label="App sections">
-                    <button type="button" class="seg is-active" role="tab" aria-selected="true">Ride</button>
-                    <button type="button" class="seg" role="tab" aria-selected="false">Delivery</button>
-                    <button type="button" class="seg" role="tab" aria-selected="false">News</button>
-                  </div>
-
-                  <div class="app-map" style="background-image:url('images/orda/googlemaps.png');" aria-label="Map preview">
-                    <span class="map-pin" aria-hidden="true"></span>
-                  </div>
-
-                  <div class="app-field">
-                    <span class="icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.686-6-10a6 6 0 1112 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
-                    </span>
-                    <div class="field-text"><strong>Pickup</strong><span>Makola Market</span></div>
-                  </div>
-
-                  <div class="app-field">
-                    <span class="icon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21V5l10 4v12"/><path d="M7 12l10 4"/></svg>
-                    </span>
-                    <div class="field-text"><strong>Destination</strong><span>Kokomlemle</span></div>
-                  </div>
-
-                  <div class="app-actions">
-                    <button class="btn-app-primary" type="button">Request Ride</button>
-                    <button class="btn-app-secondary" type="button">Schedule</button>
-                  </div>
-
-                  <div class="app-quick" aria-label="Vehicle types">
-                    <div class="quick-item"><span class="qicon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16h14l-3-6h-4l-3 6z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-                    </span><span>Bike</span></div>
-                    <div class="quick-item"><span class="qicon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="6" rx="2"/><path d="M7 10V7h4l2 3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-                    </span><span>Tricycle</span></div>
-                    <div class="quick-item"><span class="qicon" aria-hidden="true">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16l2-5h10l2 5H5z"/><path d="M7 11V8h10v3"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg>
-                    </span><span>Car</span></div>
-                  </div>
-                </div>
-                <div class="bottom-nav" role="navigation" aria-label="App navigation">
-                  <a class="nav-item is-active" href="#home" aria-label="Home">
-                    <svg class="bi" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-8 9 8"/><path d="M9 21V9h6v12"/></svg>
-                    <small>Home</small>
-                  </a>
-                  <a class="nav-item" href="#orders" aria-label="Orders">
-                    <svg class="bi" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10"/><path d="M7 12h6"/></svg>
-                    <small>Orders</small>
-                  </a>
-                  <a class="nav-item" href="#wallet" aria-label="Wallet">
-                    <svg class="bi" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M16 12h2"/></svg>
-                    <small>Wallet</small>
-                  </a>
-                  <a class="nav-item" href="#profile" aria-label="Profile">
-                    <svg class="bi" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M6 20c0-3.314 2.686-6 6-6s6 2.686 6 6"/></svg>
-                    <small>Profile</small>
-                  </a>
-                </div>
+          <div class="relative col-start-13 col-end-25 h-full -ml-[0.5rem] overflow-hidden">
+                          <div class="home-cover__image absolute-full" style="z-index: 4">
+                <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="images/biker.jpg"
+      data-srcset="images/biker.jpg"
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      48vw" >
+  </figure>
+</div>              </div>
+                          <div class="home-cover__image absolute-full" style="z-index: 3">
+                <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="images/orda.png"
+      data-srcset="images/orda.png"
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      48vw" >
+  </figure>
+</div>              </div>
+                          <div class="home-cover__image absolute-full" style="z-index: 2">
+                <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="images/use.png"
+      data-srcset="images/use.png"
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      48vw" >
+  </figure>
+</div>              </div>
+                          <div class="home-cover__image absolute-full" style="z-index: 1">
+                <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="images/prince.jpg"
+      data-srcset="images/prince.jpg"
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      48vw" >
+  </figure>
+</div>              </div>
+                      </div>
+        </div>
+                  <div class="absolute max-lg:w-[calc(100%_-_var(--padding-container)_*_2)] bottom-container lg:bottom-30 left-1/2 -translate-x-1/2" style="z-index: 4">
+            <div class="button  max-lg:w-full   h-[6rem] inline-flex items-center justify-center gap-20 px-[3.5rem] md:px-[2.8rem] rounded-5  bg-green  border-px border-green text-beige body-16 cursor-pointer"  data-mode="green">
+  Learn More
+      <div class="button__arrows-wrapper relative w-[calc(2.25rem_-_1px)] h-[calc(2.25rem_-_1px)] -mx-[calc((2.25rem_-_0.9rem)_/_2)] overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+      <div class="absolute top-1/2 left-0 -translate-x-full -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+    </div>
+   </div>           </div>
               </div>
-              <div class="side-btn"></div>
-              <div class="vol-up"></div>
-              <div class="vol-down"></div>
+    </div>
+
+    <div class="absolute left-1/2 top-1/2 w-full grid-w -translate-x-1/2 -translate-y-[calc(50%_-_11.59%)] lg:-translate-y-1/2 pointer-events-none select-none">
+      <div class="home-cover__caeli-one-section relative col-start-7 md:col-start-9 lg:col-start-10 xl:col-start-11 col-end-19 md:col-end-17 lg:col-end-16 xl:col-end-15">
+        <div class="relative w-full h-0 pb-[192%]">
+          <div class="home-cover__image absolute-full will-change-transform">
+            <div class="absolute left-1/2 top-0 w-[153%] opacity-30">
+              <img class="w-full h-full" src="https://www.caeli-energie.com/wp-content/themes/beaucoup/resources/images/caeli-one-shadow.webp" alt="Caeli One Shadow">
             </div>
+            <img id="hero-motorcycle" class="absolute-full motorcycle-animate paused" src="images/hero-motor.png" alt="Caeli One">
           </div>
+          <div class="absolute left-1/2 top-[20%] -translate-x-1/2 pointer-events-auto">
+            <div class="scroll-indicator group inline-flex items-center gap-x-15 text-light-green body-16 cursor-pointer">
+  Find out more
+  <div class="relative w-[3rem] h-[3rem]">
+    <div class="scroll-indicator__circle absolute-full border-px border-light-green border-opacity-30 [@media(hover:hover)]:group-hover:scale-75 rounded-full duration-300 ease-out transition-transform"></div>
+    <div class="absolute left-1/2 top-1/2 w-[calc(100%_*_0.75_-_1px)] h-[calc(100%_*_0.75_-_1px)] -translate-x-1/2 -translate-y-1/2 overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="scroll-indicator__arrow w-[0.9rem] h-[0.8rem] svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full">
+        <div class="scroll-indicator__arrow w-[0.9rem] h-[0.8rem] svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+    </div>
+  </div>
+</div>          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="testimonials" class="testimonials-section" aria-label="Testimonials">
-    <div class="container">
-      <div class="testimonials-header" style="text-align:center;">
-        <span class="pill">Testimonials</span>
-        <h2 class="section-title">What our riders and partners say</h2>
+<section class="xl:hidden px-container py-20">
+      <div class="flex flex-col items-center gap-y-30 pb-container pt-50 px-container mb-20 last:mb-0 bg-white text-center rounded-8">
+      <div>
+        <h3 class="mb-30 text-green body-35 lg:body-45 font-black uppercase">Unmatched Access</h3>
+        <div class="text-gray-green body-15 lg:body-18">Our platform delivers a reliable way to book a ride anytime, anywhere — your destination is never out of reach. From busy mornings to late nights, your ride is ready when you are.</div>
+      </div>
+      <div class="relative w-full h-0 pb-[56.25%] rounded-5 overflow-hidden">
+        <div class="absolute-full">
+          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="images/biker.jpg"
+      data-srcset="images/biker.jpg"
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      85vw" >
+  </figure>
+</div>        </div>
       </div>
     </div>
-
-    <div class="testimonials-gallery" aria-label="Community highlights">
-      <div class="tstl-perspective">
-        <div class="tstl-perspective-inner">
-          <div class="tstl-row row-1">
-            <div class="tstl-item" role="button" tabindex="0" data-quote="ORDA made my commute cheaper and safer. I get to the market in half the time." data-name="Akua Mensah" data-role="Vendor"><div class="tstl-card"><p class="tstl-quote">“ORDA made my commute cheaper and safer. I get to the market in half the time.”</p><div class="tstl-meta"><strong class="tstl-name">Akua Mensah</strong><span class="tstl-role">Vendor</span></div></div></div>
-            <div class="tstl-item" role="button" tabindex="0" data-quote="As a rider, payouts are fast and support is real. I can plan my day confidently." data-name="Kweku Prosper" data-role="Rider"><div class="tstl-card"><p class="tstl-quote">“As a rider, payouts are fast and support is real. I can plan my day confidently.”</p><div class="tstl-meta"><strong class="tstl-name">Kweku Prosper</strong><span class="tstl-role">Rider</span></div></div></div>
-            <div class="tstl-item" role="button" tabindex="0" data-quote="Deliveries arrive on time with OTP handoff. My customers trust the process." data-name="Afia Boateng" data-role="Shop Owner"><div class="tstl-card"><p class="tstl-quote">“Deliveries arrive on time with OTP handoff. My customers trust the process.”</p><div class="tstl-meta"><strong class="tstl-name">Afia Boateng</strong><span class="tstl-role">Shop Owner</span></div></div></div>
-            <div class="tstl-item" role="button" tabindex="0" data-quote="The local news alerts help me avoid roadblocks and save fuel daily." data-name="Yaw Asare" data-role="Driver"><div class="tstl-card"><p class="tstl-quote">“The local news alerts help me avoid roadblocks and save fuel daily.”</p><div class="tstl-meta"><strong class="tstl-name">Yaw Asare</strong><span class="tstl-role">Driver</span></div></div></div>
-            <div class="tstl-item" role="button" tabindex="0" data-quote="Scheduling rides for my mother has been easy, even without data coverage." data-name="Nana Adwoa" data-role="Caregiver"><div class="tstl-card"><p class="tstl-quote">“Scheduling rides for my mother has been easy, even without data coverage.”</p><div class="tstl-meta"><strong class="tstl-name">Nana Adwoa</strong><span class="tstl-role">Caregiver</span></div></div></div>
-            <div class="tstl-item" role="button" tabindex="0" data-quote="I earn more during peak hours thanks to bonuses and fair pricing." data-name="Kojo Owusu" data-role="Rider"><div class="tstl-card"><p class="tstl-quote">“I earn more during peak hours thanks to bonuses and fair pricing.”</p><div class="tstl-meta"><strong class="tstl-name">Kojo Owusu</strong><span class="tstl-role">Rider</span></div></div></div>
+      <div class="flex flex-col items-center gap-y-30 pb-container pt-50 px-container mb-20 last:mb-0 bg-white text-center rounded-8">
+      <div>
+        <h3 class="mb-30 text-green body-35 lg:body-45 font-black uppercase">Your Trust is Key</h3>
+        <div class="text-gray-green body-15 lg:body-18">Your rides stay within the community, where trust and safety come first. Every driver and rider is a familiar face or a neighbor, ensuring every trip feels personal, secure, and worry-free.</div>
+      </div>
+      <div class="relative w-full h-0 pb-[56.25%] rounded-5 overflow-hidden">
+        <div class="absolute-full">
+          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="images/orda.png"
+      data-srcset="images/orda.png"
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      85vw" >
+  </figure>
+</div>        </div>
+      </div>
+    </div>
+      <div class="flex flex-col items-center gap-y-30 pb-container pt-50 px-container mb-20 last:mb-0 bg-white text-center rounded-8">
+      <div>
+        <h3 class="mb-30 text-green body-35 lg:body-45 font-black uppercase">Ride More, Spend Less</h3>
+        <div class="text-gray-green body-15 lg:body-18">Save on every trip without compromising comfort or convenience — smart pricing that keeps your wallet happy.</div>
+      </div>
+      <div class="relative w-full h-0 pb-[56.25%] rounded-5 overflow-hidden">
+        <div class="absolute-full">
+          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="images/use.png"
+      data-srcset="images/use.png"
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      85vw" >
+  </figure>
+</div>        </div>
+      </div>
+    </div>
+      <div class="flex flex-col items-center gap-y-30 pb-container pt-50 px-container mb-20 last:mb-0 bg-white text-center rounded-8">
+      <div>
+        <h3 class="mb-30 text-green body-35 lg:body-45 font-black uppercase">Supporting Local Connections</h3>
+        <div class="text-gray-green body-15 lg:body-18">Every ride strengthens your neighborhood by keeping transportation local. Orda Rides helps neighbors support each other, reduce traffic, and build a safer, more connected community.</div>
+      </div>
+      <div class="relative w-full h-0 pb-[56.25%] rounded-5 overflow-hidden">
+        <div class="absolute-full">
+          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="images/prince.jpg"
+      data-srcset="images/prince.jpg"
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      85vw" >
+  </figure>
+</div>        </div>
+      </div>
+    </div>
+  </section>        <section class="full-screen-titles w-full h-[200vh] min-h-[calc(600px_*_2)] text-beige">
+  <div class="sticky top-0 w-full h-[var(--vh)] min-h-[600px] overflow-hidden">
+    <div class="full-screen-titles__inner relative w-full h-full flex items-center justify-center bg-dark-green will-change-transform">
+              <div class="absolute left-0 top-0 max-lg:hidden -translate-x-[44.69%] -translate-y-[4.58%]">
+          <div class="full-screen-titles__leaf h-[65.5rem] w-[122.6rem] text-white opacity-10 will-change-transform svg-wrapper"><svg width="1226" height="655" viewBox="0 0 1226 655" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1225.5 0.499939L655.034 0.499964C293.982 0.49998 0.770736 293.53 0.500244 654.5L570.966 654.5C932.018 654.5 1225.23 361.47 1225.5 0.499939Z" stroke="currentColor"/>
+</svg></div>
+        </div>
+        <div class="absolute right-0 bottom-0 max-lg:hidden translate-x-[44.69%] translate-y-[4.58%] rotate-180">
+          <div class="full-screen-titles__leaf h-[65.5rem] w-[122.6rem] text-white opacity-10 will-change-transform svg-wrapper"><svg width="1226" height="655" viewBox="0 0 1226 655" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1225.5 0.499939L655.034 0.499964C293.982 0.49998 0.770736 293.53 0.500244 654.5L570.966 654.5C932.018 654.5 1225.23 361.47 1225.5 0.499939Z" stroke="currentColor"/>
+</svg></div>
+        </div>
+            <div class="relative w-full px-container">
+                  <div class="absolute left-1/2 -top-10 lg::-top-20 max-lg:w-full body-12 text-center uppercase -translate-x-1/2 -translate-y-full">Our Mission</div>
+                <h2 class="relative body-35 md:body-50 md:max-lg:font-black md:max-lg:leading-none lg:body-85 uppercase text-center">
+          <span class="full-screen-titles__first-title">Delivering safe, dignified mobility solutions ...</span>
+                      <span class="full-screen-titles__second-title absolute left-1/2 top-0 w-full -translate-x-1/2">... locally</span>
+                  </h2>
+      </div>
+    </div>
+  </div>
+</section>        <section class="slider xl:h-[var(--vh)] xl:min-h-[600px] grid-w max-xl:gap-y-30 py-container my-50 lg:my-150">
+  <div class="slider__items max-xl:col-span-full xl:col-start-2 xl:col-end-10 xl:self-end">
+          <div class="slider__item relative flex items-end gap-x-10 lg:gap-x-15 py-10 lg:py-20 text-light-green cursor-pointer">
+        <div class="absolute left-0 top-0 w-full h-[1px] bg-green opacity-20"></div>
+        <div class="slider__foreground-line absolute left-0 top-0 w-full h-[1px] bg-green origin-left "></div>
+        
+        <h3 class="slider__title body-30 lg:body-40">Order Rides</h3>
+      </div>
+          <div class="slider__item relative flex items-end gap-x-10 lg:gap-x-15 py-10 lg:py-20 text-light-green cursor-pointer">
+        <div class="absolute left-0 top-0 w-full h-[1px] bg-green opacity-20"></div>
+        <div class="slider__foreground-line absolute left-0 top-0 w-full h-[1px] bg-green origin-left  scale-x-0 "></div>
+        
+        <h3 class="slider__title body-30 lg:body-40">Get Your Deliveries</h3>
+      </div>
+          <div class="slider__item relative flex items-end gap-x-10 lg:gap-x-15 py-10 lg:py-20 text-light-green cursor-pointer">
+        <div class="absolute left-0 top-0 w-full h-[1px] bg-green opacity-20"></div>
+        <div class="slider__foreground-line absolute left-0 top-0 w-full h-[1px] bg-green origin-left  scale-x-0 "></div>
+        
+        <h3 class="slider__title body-30 lg:body-40">Stay Informed</h3>
+      </div>
+      </div>
+  <div class="xl:relative max-xl:h-full max-xl:col-span-full xl:col-start-11 xl:col-end-25 max-xl:flex max-xl:flex-col max-xl:gap-y-30 xl:rounded-10 xl:overflow-hidden">
+    <div class="slider__images max-xl:relative xl:absolute-full max-xl:h-0 max-xl:pb-[67.85%] max-xl:rounded-10 max-xl:overflow-hidden">
+              <div class="slider__image absolute-full " style="z-index: 3">
+          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-2-480x270.jpg"
+      data-srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-2-480x270.jpg 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-2-768x432.jpg 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-2-1200x675.jpg 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-2-1600x900.jpg 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-2-1920x1080.jpg 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-2-2560x1440.jpg 2560w,
+              "
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      55vw" >
+  </figure>
+</div>        </div>
+              <div class="slider__image absolute-full  opcacity-0 " style="z-index: 2">
+          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-residentiel-10-480x270.jpg"
+      data-srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-residentiel-10-480x270.jpg 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-residentiel-10-768x432.jpg 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-residentiel-10-1200x675.jpg 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-residentiel-10-1600x900.jpg 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-residentiel-10-1920x1080.jpg 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-residentiel-10-2560x1440.jpg 2560w,
+              "
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      55vw" >
+  </figure>
+</div>        </div>
+              <div class="slider__image absolute-full  opcacity-0 " style="z-index: 1">
+          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" lazy opacity-0  w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                data-src="https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-3-480x270.jpg"
+      data-srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-3-480x270.jpg 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-3-768x432.jpg 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-3-1200x675.jpg 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-3-1600x900.jpg 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-3-1920x1080.jpg 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/06/caeli-pro-3-2560x1440.jpg 2560w,
+              "
+      data-sizes="
+      (max-width: 1023px) 100vw,
+      55vw" >
+  </figure>
+</div>        </div>
           </div>
-          <div class="tstl-row row-2">
-            <div class="tstl-item" role="button" tabindex="0" data-quote="Cash-on-delivery has grown my orders. My customers love the reliability." data-name="Selina Ofori" data-role="Boutique Owner"><div class="tstl-card"><p class="tstl-quote">“Cash-on-delivery has grown my orders. My customers love the reliability.”</p><div class="tstl-meta"><strong class="tstl-name">Selina Ofori</strong><span class="tstl-role">Boutique Owner</span></div></div></div>
-            <div class="tstl-item" role="button" tabindex="0" data-quote="The app is simple, and SMS works when data is slow. That changed everything." data-name="Kwabena Mensimah" data-role="Trader"><div class="tstl-card"><p class="tstl-quote">“The app is simple, and SMS works when data is slow. That changed everything.”</p><div class="tstl-meta"><strong class="tstl-name">Kwabena Mensimah</strong><span class="tstl-role">Trader</span></div></div></div>
-            <div class="tstl-item" role="button" tabindex="0" data-quote="ORDA riders are respectful and verified. I feel safer booking rides now." data-name="Abena Serwaa" data-role="Teacher"><div class="tstl-card"><p class="tstl-quote">“ORDA riders are respectful and verified. I feel safer booking rides now.”</p><div class="tstl-meta"><strong class="tstl-name">Abena Serwaa</strong><span class="tstl-role">Teacher</span></div></div></div>
-            <div class="tstl-item" role="button" tabindex="0" data-quote="My shop’s reach expanded beyond my neighborhood with fast deliveries." data-name="Rashid Issah" data-role="Electronics"><div class="tstl-card"><p class="tstl-quote">“My shop’s reach expanded beyond my neighborhood with fast deliveries.”</p><div class="tstl-meta"><strong class="tstl-name">Rashid Issah</strong><span class="tstl-role">Electronics</span></div></div></div>
-            <div class="tstl-item" role="button" tabindex="0" data-quote="Transparent pricing and live tracking make me confident every trip." data-name="Ama Kissi" data-role="Student"><div class="tstl-card"><p class="tstl-quote">“Transparent pricing and live tracking make me confident every trip.”</p><div class="tstl-meta"><strong class="tstl-name">Ama Kissi</strong><span class="tstl-role">Student</span></div></div></div>
-            <div class="tstl-item" role="button" tabindex="0" data-quote="Support picked my call at night – that alone makes ORDA different." data-name="Prince Tetteh" data-role="Rider"><div class="tstl-card"><p class="tstl-quote">“Support picked my call at night – that alone makes ORDA different.”</p><div class="tstl-meta"><strong class="tstl-name">Prince Tetteh</strong><span class="tstl-role">Rider</span></div></div></div>
+    <div class="xl:absolute xl:left-0 xl:bottom-10 xl:w-full xl:grid xl:grid-cols-14 xl:gap-x-grid text-gray-green max-xl:text-center" style="z-index: 3">
+      <div class="slider__contents relative xl:col-start-6 xl:col-end-15 xl:grid xl:grid-cols-9 xl:gap-x-grid overflow-hidden">
+        <div class="absolute left-0 bottom-0 h-full w-[calc(100%_-_1rem)] xl:bg-light-beige xl:rounded-8"></div>
+        <div class="relative max-xl:h-full xl:col-start-2 xl:col-end-9">
+                      <div class="slider__content absolute left-0 xl:bottom-0 max-xl:top-0  xl:py-50">Order rides in seconds, upfront pricing, live tracking, and built‑in safety sharing for peace of mind.</div>
+                      <div class="slider__content absolute left-0 xl:bottom-0 max-xl:top-0  opacity-0  xl:py-50">Get your deliveries in minutes, with no hidden fees or surprises.</div>
+                      <div class="slider__content absolute left-0 xl:bottom-0 max-xl:top-0  opacity-0  xl:py-50">Stay informed with real-time updates, so you never miss a ride or delivery.</div>
+                  </div>
+      </div>
+    </div>
+  </div>
+</section>        <section class="image-content flex flex-col gap-y-50 lg:gap-y-150  my-50 lg:my-150 ">
+  <div class="grid-w items-start max-lg:px-container">
+          <div class="max-lg:relative col-span-full lg:col-span-11 xl:col-start-2 xl:col-end-11 max-lg:h-0 max-lg:pb-[67.85%] rounded-8 overflow-hidden">
+        <div class="parallax-image max-lg:hidden">
+          <div class="image  w-full h-full  image-ratio "  style="--ratio: 0.5625" >
+  <figure class="w-full h-full">
+      <img  style="
+    --ratio: 0.5625"           class=" w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                src="images/rider.png">
+  </figure>
+</div>        </div>
+        <div class="max-lg:absolute-full lg:hidden">
+          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                src="images/rider.png">
+  </figure>
+</div>        </div>
+      </div>
+        <div class="col-span-full  lg:col-start-14 xl:col-start-14 lg:col-end-25 xl:col-end-23  flex flex-col xl:gap-x-grid gap-y-100 xl:gap-y-150 pt-50 text-gray-green body-15 lg:body-18">
+      <div class="flex flex-col items-start gap-y-30">
+                <p>Our riders deliver verified, community-powered mobility at scale. For every trip completed, ORDA RIDES ensures real-time safety checks, transparent pricing, and same-day payouts. That's 3 times more secure and 2 times more reliable than informal okada services—without sacrificing speed or local knowledge.</p>
+
+         <div class="button   h-[6rem] inline-flex items-center justify-center gap-20 px-[3.5rem] md:px-[2.8rem] rounded-5  border-px border-green/20 text-green body-16 cursor-pointer"  data-mode="transparent-green">Ride for Us
+      <div class="button__arrows-wrapper relative w-[calc(2.25rem_-_1px)] h-[calc(2.25rem_-_1px)] -mx-[calc((2.25rem_-_0.9rem)_/_2)] overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+      <div class="absolute top-1/2 left-0 -translate-x-full -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+    </div>
+   </div>        </div>
           </div>
-        </div>
+      </div>
+  </section>        <section class="image-content flex flex-col gap-y-50 lg:gap-y-150  my-50 lg:my-150 ">
+  <div class="grid-w items-start max-lg:px-container">
+          <div class="max-lg:relative col-span-full lg:col-span-11 xl:col-start-2 xl:col-end-11 max-lg:h-0 max-lg:pb-[67.85%] rounded-8 overflow-hidden">
+        <div class="parallax-image max-lg:hidden">
+          <div class="image  w-full h-full  image-ratio "  style="--ratio: 0.5625" >
+  <figure class="w-full h-full">
+      <img  style="
+    --ratio: 0.5625"           class=" w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                src="images/town.png">
+  </figure>
+</div>        </div>
+        <div class="max-lg:absolute-full lg:hidden">
+          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                src="images/town.png">
+  </figure>
+</div>        </div>
+      </div>
+        <div class="col-span-full  lg:col-start-14 xl:col-start-14 lg:col-end-25 xl:col-end-23  flex flex-col xl:gap-x-grid gap-y-100 xl:gap-y-150 pt-50 text-gray-green body-15 lg:body-18">
+      <div class="flex flex-col items-start gap-y-30">
+                <p>By enlisting local businesses and market vendors, our platform strengthens community economies while streamlining logistics. ORDA RIDES enables merchants to schedule deliveries, reach new customers, and reduce transport delays by up to 60% compared to informal courier options. Every transaction supports local growth—keeping revenue, trust, and opportunity circulating locally.</p>
+
+         <div class="button   h-[6rem] inline-flex items-center justify-center gap-20 px-[3.5rem] md:px-[2.8rem] rounded-5  border-px border-green/20 text-green body-16 cursor-pointer"  data-mode="transparent-green">Enlist Your Business
+      <div class="button__arrows-wrapper relative w-[calc(2.25rem_-_1px)] h-[calc(2.25rem_-_1px)] -mx-[calc((2.25rem_-_0.9rem)_/_2)] overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+      <div class="absolute top-1/2 left-0 -translate-x-full -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
       </div>
     </div>
-
-    <div class="tstl-modal" id="testimonialModal" aria-hidden="true">
-      <div class="tstl-modal-backdrop" data-close="true"></div>
-      <div class="tstl-modal-card" role="dialog" aria-modal="true" aria-label="Testimonial">
-        <button class="tstl-modal-close" aria-label="Close" data-close="true">&times;</button>
-        <div class="tstl-modal-body">
-          <blockquote class="tstl-modal-quote" id="testimonialModalQuote"></blockquote>
-          <div class="tstl-modal-meta">
-            <strong class="tstl-modal-name" id="testimonialModalName"></strong>
-            <span class="tstl-modal-role" id="testimonialModalRole"></span>
+   </div>        </div>
           </div>
+      </div>
+  </section>        <section class="image-content flex flex-col gap-y-50 lg:gap-y-150  my-50 lg:my-150 ">
+  <div class="grid-w items-start max-lg:px-container">
+        <div class="col-span-full  lg:col-span-11 xl:col-start-2 xl:col-end-11 max-lg:order-2  flex flex-col xl:gap-x-grid gap-y-100 xl:gap-y-150 pt-50 text-gray-green body-15 lg:body-18">
+      <div class="flex flex-col items-start gap-y-30">
+                <p>The founding team—all born and raised in the neighborhoods we serve—designed ORDA RIDES to run on low-bandwidth networks and affordable devices. That means 4× faster load times and 80% lower data usage than conventional ride-hailing platforms. Every line of code reflects the realities of Ghanaian streets—and the dreams of those who walk them.</p>
+
+              </div>
+          </div>
+          <div class="max-lg:relative col-span-full lg:col-start-14 xl:col-start-14 lg:col-end-25 xl:col-end-23 max-lg:h-0 max-lg:pb-[67.85%] max-lg:order-1 rounded-8 overflow-hidden">
+        <div class="parallax-image max-lg:hidden">
+          <div class="image  w-full h-full  image-ratio "  style="--ratio: 0.5625" >
+  <figure class="w-full h-full">
+      <img  style="
+    --ratio: 0.5625"           class=" w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                src="images/foot.png">
+  </figure>
+</div>        </div>
+        <div class="max-lg:absolute-full lg:hidden">
+          <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" w-full h-full   object-cover "
+          width="150" height="150" alt=""
+                src="images/foot.png">
+  </figure>
+</div>        </div>
+      </div>
+      </div>
+  </section>                <section class="pre-footer relative w-full md:min-h-[700px] hd:min-h-[1080px] -mb-150 mt-50 lg:mt-250 overflow-hidden z-2" style="clip-path: inset(var(--inset-top-bottom, 0%) var(--inset-left-right, 0%) round var(--inset-border-radius, 0rem));">
+  <div class="absolute-full pointer-events-none select-none">
+    <div class="pre-footer__background absolute-full will-change-transform">
+      <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" w-full h-full   object-cover "
+          width="150" height="150" alt=""
+           src="https://www.caeli-energie.com/wp-content/uploads/2024/09/pre-footer-background-480x300.jpeg"
+      srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/pre-footer-background-480x300.jpeg 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/pre-footer-background-768x480.jpeg 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/pre-footer-background-1200x750.jpeg 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/pre-footer-background-1600x1000.jpeg 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/pre-footer-background-1920x1200.jpeg 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/09/pre-footer-background-2560x1600.jpeg 2560w,
+              "
+      sizes="
+      (max-width: 1023px) 100vw,
+      100vw"
+    >
+  </figure>
+</div>    </div>
+    <div class="pre-footer__middleground absolute-full will-change-transform">
+      <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" w-full h-full   object-cover "
+          width="150" height="150" alt=""
+           src="https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-middleground-480x300.png"
+      srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-middleground-480x300.png 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-middleground-768x480.png 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-middleground-1200x750.png 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-middleground-1600x1000.png 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-middleground-1920x1200.png 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-middleground-2560x1600.png 2560w,
+              "
+      sizes="
+      (max-width: 1023px) 100vw,
+      100vw"
+    >
+  </figure>
+</div>    </div>
+  </div>
+  <div class="relative flex flex-col items-center gap-y-[37.5rem] pt-[calc(5rem_+_var(--padding-container))] pb-[calc(var(--padding-container)_*_2)] lg:pb-[calc(5rem_+_var(--padding-container))]">
+    <div class=" w-[calc(100%_-_var(--padding-container)_*_2)] lg:w-full lg:grid-w max-lg:px-container">
+      <div class="pre-footer__title lg:col-start-3 lg:col-end-23 text-beige body-45 md:body-90 lg:body-100 max-xl:font-bold xl:body-120 uppercase text-center">Coming To Your<br />
+Community<br />
+Soon...</div>
+    </div>
+    <div class="absolute-full pointer-events-none select-none">
+      <div class="absolute-full">
+        <div class="pre-footer__product-image w-full h-full will-change-transform">
+          <div class="absolute left-1/2 top-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 scale-75 lg:scale-90">
+            <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" w-full h-full   object-cover "
+          width="150" height="150" alt=""
+           src="images/mount.png"
+      srcset="images/mount.png"
+      sizes="
+      (max-width: 1023px) 100vw,
+      100vw"
+    >
+  </figure>
+</div>          </div>
         </div>
+      </div>
+      <div class="pre-footer__foreground absolute-full will-change-transform">
+        <div class="image  w-full h-full " >
+  <figure class="w-full h-full">
+      <img           class=" w-full h-full   object-cover "
+          width="150" height="150" alt=""
+           src="https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-foreground-480x300.png"
+      srcset="
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-foreground-480x300.png 480w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-foreground-768x480.png 768w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-foreground-1200x750.png 1200w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-foreground-1600x1000.png 1600w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-foreground-1920x1200.png 1920w,
+                  https://www.caeli-energie.com/wp-content/uploads/2024/07/pre-footer-foreground-2560x1600.png 2560w,
+              "
+      sizes="
+      (max-width: 1023px) 100vw,
+      100vw"
+    >
+  </figure>
+</div>      </div>
+      <div class="absolute left-0 bottom-0 w-full h-[45%] bg-gradient-to-t from-green to-green/0 opacity-50"></div>
+    </div>
+          <div class="relative max-lg:w-[calc(100%_-_var(--padding-container)_*_4)]">
+        <div class="button  max-lg:w-full   h-[6rem] inline-flex items-center justify-center gap-20 px-[3.5rem] md:px-[2.8rem] rounded-5  bg-light-beige  border-px border-light-beige text-green body-16 cursor-pointer"  data-mode="light-beige">
+  Contact Us
+      <div class="button__arrows-wrapper relative w-[calc(2.25rem_-_1px)] h-[calc(2.25rem_-_1px)] -mx-[calc((2.25rem_-_0.9rem)_/_2)] overflow-hidden">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
+      </div>
+      <div class="absolute top-1/2 left-0 -translate-x-full -translate-y-1/2">
+        <div class="button__arrow w-[0.9rem] h-[0.8rem] -rotate-90 svg-wrapper"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M7.75098 3.85453L4.28631 7.3192L0.82163 3.85453L1.52873 3.14743L3.78632 5.405L3.78635 0.00097661L4.78635 0.000982096L4.78632 5.40498L7.04387 3.14743L7.75098 3.85453Z" fill="currentColor"/>
+</svg></div>
       </div>
     </div>
-  </section>
-
-  <section class="end-section" aria-label="Wrap up">
-    <div class="end-hero" style="background-image:url('../images/background.png')">
-      <div class="end-overlay" aria-hidden="true"></div>
-      <div class="end-content">
-        <h2>ORDA Rides is coming to your community soon!</h2>
-        <a href="#apply" class="btn btn-dark end-cta">Join Us!</a>
+   </div>       </div>
+      </div>
+</section>
+        <footer class="relative grid grid-cols-8 gap-grid max-lg:px-container lg:grid-w  pt-200 lg:pt-250  bg-green overflow-hidden footer">
+  <div class="absolute hidden xl:block -top-20 -left-[45rem] w-[120rem] h-[64rem] svg-wrapper text-beige opacity-[0.08] pointer-events-none"><svg width="1226" height="655" viewBox="0 0 1226 655" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1225.5 0.499939L655.034 0.499964C293.982 0.49998 0.770736 293.53 0.500244 654.5L570.966 654.5C932.018 654.5 1225.23 361.47 1225.5 0.499939Z" stroke="currentColor"/>
+</svg></div>
+  <div class="absolute hidden xl:block -bottom-[7rem] -right-[42rem] w-[107rem] h-[58.9rem] svg-wrapper text-beige opacity-[0.08] pointer-events-none"><svg width="1226" height="655" viewBox="0 0 1226 655" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1225.5 0.499939L655.034 0.499964C293.982 0.49998 0.770736 293.53 0.500244 654.5L570.966 654.5C932.018 654.5 1225.23 361.47 1225.5 0.499939Z" stroke="currentColor"/>
+</svg></div>
+  <div class="col-span-full lg:col-span-5 mb-35 lg:mb-0 body-40 text-beige uppercase font-black">Made For Your Community</div>
+  <div class="col-span-4 lg:col-start-15 lg:col-end-20 flex flex-col items-start body-16 lg:body-20 font-bold text-beige footer__section">
+          <div class="footer__link py-[0.25rem] lg:py-[0.75rem]">Home</div>
+          <div class="footer__link py-[0.25rem] lg:py-[0.75rem]">Our Community</div>
+          <div class="footer__link py-[0.25rem] lg:py-[0.75rem]">Demo</div>
+          <div class="footer__link py-[0.25rem] lg:py-[0.75rem]">Contact Us</div>
+          <div class="footer__link py-[0.25rem] lg:py-[0.75rem]">Blog</div>
+      </div>
+  <div class="col-span-4 lg:col-start-21 lg:col-end-25 flex flex-col items-start body-16 lg:body-18 !font-normal text-beige footer__section">
+          <div class="footer__link py-[0.25rem] lg:py-[0.35rem]">Join Us</div>
+          <div class="footer__link py-[0.25rem] lg:py-[0.35rem]">QnA</div>
+          <div class="footer__link py-[0.25rem] lg:py-[0.35rem]">Professionals</div>
+      </div>
+  <div class="hidden lg:block col-span-full mt-175 mb-20 text-center">
+    <h1 class="text-beige body-100 xl:body-140 font-black uppercase tracking-wide text-left">ORDA RIDES</h1>
+  </div>
+  <div class="col-span-full flex flex-col lg:flex-row lg:justify-between max-lg:gap-y-15 max-lg:mt-150 mb-20 body-15 text-beige">
+    <div class="flex footer__section">
+              <div class="footer__link first:pl-0 last:pr-0 px-5 lg:px-10">Twitter</div>
+              <div class="footer__link first:pl-0 last:pr-0 px-5 lg:px-10">YouTube</div>
+              <div class="footer__link first:pl-0 last:pr-0 px-5 lg:px-10">LinkedIn</div>
+          </div>
+    <div class="block lg:hidden col-span-full text-center">
+      <h1 class="text-beige body-80 md:body-100 font-black uppercase tracking-wide">ORDA RIDES</h1>
+    </div>
+    <div class="flex max-lg:justify-between footer__section">
+      <div class="footer-credits footer__link inline-block cursor-pointer">
+        <div class="relative pl-0 pr-10 overflow-y-clip overflow-x-visible">
+          <div class="block footer-credits-link">Team</div>
+          <div class="absolute top-0 left-0 lg:right-10 block whitespace-nowrap select-none lg:text-right footer-credits-title">Credits</div>
+        </div>
+      </div>
+              <div class="footer__link px-10">Legal Notice</div>
+            <div class="footer__cookies footer__link inline-block pl-10 cursor-pointer">Cookies</div>
+    </div>
+  </div>
+</footer>
       </div>
     </div>
-  </section>
+          </div>
 
-  <footer class="site-footer footer-revamp" aria-label="Footer">
-    <div class="footer-canvas" aria-hidden="true"></div>
-    <div class="footer-wrap">
-      <div class="footer-top">
-        <div class="footer-brand" aria-label="Brand statement">
-          <span>ORDA Rides</span>
-          <span>Your Orders </span>
-          <span>Your Rides</span>
-        </div>
-        <nav class="footer-nav" aria-label="Footer navigation">
-          <ul class="nav-col">
-            <li><a href="#rides">Rides</a></li>
-            <li><a href="#delivery">Delivery</a></li>
-            <li><a href="#news">Local news</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#blog">Blog</a></li>
-          </ul>
-          <ul class="nav-col">
-            <li><a href="#careers">Recruitment</a></li>
-            <li><a href="#faqs">FAQ</a></li>
-            <li><a href="#business">Business</a></li>
-          </ul>
-        </nav>
-      </div>
+                <script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/beaucoup\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script id="app/0-js-before">
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			if (cachedModule.error !== undefined) throw cachedModule.error;
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			id: moduleId,
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		try {
+/******/ 			var execOptions = { id: moduleId, module: module, factory: __webpack_modules__[moduleId], require: __webpack_require__ };
+/******/ 			__webpack_require__.i.forEach(function(handler) { handler(execOptions); });
+/******/ 			module = execOptions.module;
+/******/ 			execOptions.factory.call(module.exports, module, module.exports, execOptions.require);
+/******/ 		} catch(e) {
+/******/ 			module.error = e;
+/******/ 			throw e;
+/******/ 		}
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = __webpack_module_cache__;
+/******/ 	
+/******/ 	// expose the module execution interceptor
+/******/ 	__webpack_require__.i = [];
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/amd options */
+/******/ 	(() => {
+/******/ 		__webpack_require__.amdO = {};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var chunkIds = deferred[i][0];
+/******/ 				var fn = deferred[i][1];
+/******/ 				var priority = deferred[i][2];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get javascript update chunk filename */
+/******/ 	(() => {
+/******/ 		// This function allow to reference all chunks
+/******/ 		__webpack_require__.hu = (chunkId) => {
+/******/ 			// return url for filenames based on template
+/******/ 			return "" + chunkId + "." + __webpack_require__.h() + ".hot-update.js";
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/get update manifest filename */
+/******/ 	(() => {
+/******/ 		__webpack_require__.hmrF = () => ("runtime." + __webpack_require__.h() + ".hot-update.json");
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/getFullHash */
+/******/ 	(() => {
+/******/ 		__webpack_require__.h = () => ("52ec901dc2e0cf41")
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/load script */
+/******/ 	(() => {
+/******/ 		var inProgress = {};
+/******/ 		var dataWebpackPrefix = "@roots/bud/sage/sage:";
+/******/ 		// loadScript function to load a script via script tag
+/******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
+/******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
+/******/ 			var script, needAttach;
+/******/ 			if(key !== undefined) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				for(var i = 0; i < scripts.length; i++) {
+/******/ 					var s = scripts[i];
+/******/ 					if(s.getAttribute("src") == url || s.getAttribute("data-webpack") == dataWebpackPrefix + key) { script = s; break; }
+/******/ 				}
+/******/ 			}
+/******/ 			if(!script) {
+/******/ 				needAttach = true;
+/******/ 				script = document.createElement('script');
+/******/ 		
+/******/ 				script.charset = 'utf-8';
+/******/ 				script.timeout = 120;
+/******/ 				if (__webpack_require__.nc) {
+/******/ 					script.setAttribute("nonce", __webpack_require__.nc);
+/******/ 				}
+/******/ 				script.setAttribute("data-webpack", dataWebpackPrefix + key);
+/******/ 		
+/******/ 				script.src = url;
+/******/ 			}
+/******/ 			inProgress[url] = [done];
+/******/ 			var onScriptComplete = (prev, event) => {
+/******/ 				// avoid mem leaks in IE.
+/******/ 				script.onerror = script.onload = null;
+/******/ 				clearTimeout(timeout);
+/******/ 				var doneFns = inProgress[url];
+/******/ 				delete inProgress[url];
+/******/ 				script.parentNode && script.parentNode.removeChild(script);
+/******/ 				doneFns && doneFns.forEach((fn) => (fn(event)));
+/******/ 				if(prev) return prev(event);
+/******/ 			}
+/******/ 			var timeout = setTimeout(onScriptComplete.bind(null, undefined, { type: 'timeout', target: script }), 120000);
+/******/ 			script.onerror = onScriptComplete.bind(null, script.onerror);
+/******/ 			script.onload = onScriptComplete.bind(null, script.onload);
+/******/ 			needAttach && document.head.appendChild(script);
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hot module replacement */
+/******/ 	(() => {
+/******/ 		var currentModuleData = {};
+/******/ 		var installedModules = __webpack_require__.c;
+/******/ 		
+/******/ 		// module and require creation
+/******/ 		var currentChildModule;
+/******/ 		var currentParents = [];
+/******/ 		
+/******/ 		// status
+/******/ 		var registeredStatusHandlers = [];
+/******/ 		var currentStatus = "idle";
+/******/ 		
+/******/ 		// while downloading
+/******/ 		var blockingPromises = 0;
+/******/ 		var blockingPromisesWaiting = [];
+/******/ 		
+/******/ 		// The update info
+/******/ 		var currentUpdateApplyHandlers;
+/******/ 		var queuedInvalidatedModules;
+/******/ 		
+/******/ 		// eslint-disable-next-line no-unused-vars
+/******/ 		__webpack_require__.hmrD = currentModuleData;
+/******/ 		
+/******/ 		__webpack_require__.i.push(function (options) {
+/******/ 			var module = options.module;
+/******/ 			var require = createRequire(options.require, options.id);
+/******/ 			module.hot = createModuleHotObject(options.id, module);
+/******/ 			module.parents = currentParents;
+/******/ 			module.children = [];
+/******/ 			currentParents = [];
+/******/ 			options.require = require;
+/******/ 		});
+/******/ 		
+/******/ 		__webpack_require__.hmrC = {};
+/******/ 		__webpack_require__.hmrI = {};
+/******/ 		
+/******/ 		function createRequire(require, moduleId) {
+/******/ 			var me = installedModules[moduleId];
+/******/ 			if (!me) return require;
+/******/ 			var fn = function (request) {
+/******/ 				if (me.hot.active) {
+/******/ 					if (installedModules[request]) {
+/******/ 						var parents = installedModules[request].parents;
+/******/ 						if (parents.indexOf(moduleId) === -1) {
+/******/ 							parents.push(moduleId);
+/******/ 						}
+/******/ 					} else {
+/******/ 						currentParents = [moduleId];
+/******/ 						currentChildModule = request;
+/******/ 					}
+/******/ 					if (me.children.indexOf(request) === -1) {
+/******/ 						me.children.push(request);
+/******/ 					}
+/******/ 				} else {
+/******/ 					console.warn(
+/******/ 						"[HMR] unexpected require(" +
+/******/ 							request +
+/******/ 							") from disposed module " +
+/******/ 							moduleId
+/******/ 					);
+/******/ 					currentParents = [];
+/******/ 				}
+/******/ 				return require(request);
+/******/ 			};
+/******/ 			var createPropertyDescriptor = function (name) {
+/******/ 				return {
+/******/ 					configurable: true,
+/******/ 					enumerable: true,
+/******/ 					get: function () {
+/******/ 						return require[name];
+/******/ 					},
+/******/ 					set: function (value) {
+/******/ 						require[name] = value;
+/******/ 					}
+/******/ 				};
+/******/ 			};
+/******/ 			for (var name in require) {
+/******/ 				if (Object.prototype.hasOwnProperty.call(require, name) && name !== "e") {
+/******/ 					Object.defineProperty(fn, name, createPropertyDescriptor(name));
+/******/ 				}
+/******/ 			}
+/******/ 			fn.e = function (chunkId) {
+/******/ 				return trackBlockingPromise(require.e(chunkId));
+/******/ 			};
+/******/ 			return fn;
+/******/ 		}
+/******/ 		
+/******/ 		function createModuleHotObject(moduleId, me) {
+/******/ 			var _main = currentChildModule !== moduleId;
+/******/ 			var hot = {
+/******/ 				// private stuff
+/******/ 				_acceptedDependencies: {},
+/******/ 				_acceptedErrorHandlers: {},
+/******/ 				_declinedDependencies: {},
+/******/ 				_selfAccepted: false,
+/******/ 				_selfDeclined: false,
+/******/ 				_selfInvalidated: false,
+/******/ 				_disposeHandlers: [],
+/******/ 				_main: _main,
+/******/ 				_requireSelf: function () {
+/******/ 					currentParents = me.parents.slice();
+/******/ 					currentChildModule = _main ? undefined : moduleId;
+/******/ 					__webpack_require__(moduleId);
+/******/ 				},
+/******/ 		
+/******/ 				// Module API
+/******/ 				active: true,
+/******/ 				accept: function (dep, callback, errorHandler) {
+/******/ 					if (dep === undefined) hot._selfAccepted = true;
+/******/ 					else if (typeof dep === "function") hot._selfAccepted = dep;
+/******/ 					else if (typeof dep === "object" && dep !== null) {
+/******/ 						for (var i = 0; i < dep.length; i++) {
+/******/ 							hot._acceptedDependencies[dep[i]] = callback || function () {};
+/******/ 							hot._acceptedErrorHandlers[dep[i]] = errorHandler;
+/******/ 						}
+/******/ 					} else {
+/******/ 						hot._acceptedDependencies[dep] = callback || function () {};
+/******/ 						hot._acceptedErrorHandlers[dep] = errorHandler;
+/******/ 					}
+/******/ 				},
+/******/ 				decline: function (dep) {
+/******/ 					if (dep === undefined) hot._selfDeclined = true;
+/******/ 					else if (typeof dep === "object" && dep !== null)
+/******/ 						for (var i = 0; i < dep.length; i++)
+/******/ 							hot._declinedDependencies[dep[i]] = true;
+/******/ 					else hot._declinedDependencies[dep] = true;
+/******/ 				},
+/******/ 				dispose: function (callback) {
+/******/ 					hot._disposeHandlers.push(callback);
+/******/ 				},
+/******/ 				addDisposeHandler: function (callback) {
+/******/ 					hot._disposeHandlers.push(callback);
+/******/ 				},
+/******/ 				removeDisposeHandler: function (callback) {
+/******/ 					var idx = hot._disposeHandlers.indexOf(callback);
+/******/ 					if (idx >= 0) hot._disposeHandlers.splice(idx, 1);
+/******/ 				},
+/******/ 				invalidate: function () {
+/******/ 					this._selfInvalidated = true;
+/******/ 					switch (currentStatus) {
+/******/ 						case "idle":
+/******/ 							currentUpdateApplyHandlers = [];
+/******/ 							Object.keys(__webpack_require__.hmrI).forEach(function (key) {
+/******/ 								__webpack_require__.hmrI[key](
+/******/ 									moduleId,
+/******/ 									currentUpdateApplyHandlers
+/******/ 								);
+/******/ 							});
+/******/ 							setStatus("ready");
+/******/ 							break;
+/******/ 						case "ready":
+/******/ 							Object.keys(__webpack_require__.hmrI).forEach(function (key) {
+/******/ 								__webpack_require__.hmrI[key](
+/******/ 									moduleId,
+/******/ 									currentUpdateApplyHandlers
+/******/ 								);
+/******/ 							});
+/******/ 							break;
+/******/ 						case "prepare":
+/******/ 						case "check":
+/******/ 						case "dispose":
+/******/ 						case "apply":
+/******/ 							(queuedInvalidatedModules = queuedInvalidatedModules || []).push(
+/******/ 								moduleId
+/******/ 							);
+/******/ 							break;
+/******/ 						default:
+/******/ 							// ignore requests in error states
+/******/ 							break;
+/******/ 					}
+/******/ 				},
+/******/ 		
+/******/ 				// Management API
+/******/ 				check: hotCheck,
+/******/ 				apply: hotApply,
+/******/ 				status: function (l) {
+/******/ 					if (!l) return currentStatus;
+/******/ 					registeredStatusHandlers.push(l);
+/******/ 				},
+/******/ 				addStatusHandler: function (l) {
+/******/ 					registeredStatusHandlers.push(l);
+/******/ 				},
+/******/ 				removeStatusHandler: function (l) {
+/******/ 					var idx = registeredStatusHandlers.indexOf(l);
+/******/ 					if (idx >= 0) registeredStatusHandlers.splice(idx, 1);
+/******/ 				},
+/******/ 		
+/******/ 				//inherit from previous dispose call
+/******/ 				data: currentModuleData[moduleId]
+/******/ 			};
+/******/ 			currentChildModule = undefined;
+/******/ 			return hot;
+/******/ 		}
+/******/ 		
+/******/ 		function setStatus(newStatus) {
+/******/ 			currentStatus = newStatus;
+/******/ 			var results = [];
+/******/ 		
+/******/ 			for (var i = 0; i < registeredStatusHandlers.length; i++)
+/******/ 				results[i] = registeredStatusHandlers[i].call(null, newStatus);
+/******/ 		
+/******/ 			return Promise.all(results);
+/******/ 		}
+/******/ 		
+/******/ 		function unblock() {
+/******/ 			if (--blockingPromises === 0) {
+/******/ 				setStatus("ready").then(function () {
+/******/ 					if (blockingPromises === 0) {
+/******/ 						var list = blockingPromisesWaiting;
+/******/ 						blockingPromisesWaiting = [];
+/******/ 						for (var i = 0; i < list.length; i++) {
+/******/ 							list[i]();
+/******/ 						}
+/******/ 					}
+/******/ 				});
+/******/ 			}
+/******/ 		}
+/******/ 		
+/******/ 		function trackBlockingPromise(promise) {
+/******/ 			switch (currentStatus) {
+/******/ 				case "ready":
+/******/ 					setStatus("prepare");
+/******/ 				/* fallthrough */
+/******/ 				case "prepare":
+/******/ 					blockingPromises++;
+/******/ 					promise.then(unblock, unblock);
+/******/ 					return promise;
+/******/ 				default:
+/******/ 					return promise;
+/******/ 			}
+/******/ 		}
+/******/ 		
+/******/ 		function waitForBlockingPromises(fn) {
+/******/ 			if (blockingPromises === 0) return fn();
+/******/ 			return new Promise(function (resolve) {
+/******/ 				blockingPromisesWaiting.push(function () {
+/******/ 					resolve(fn());
+/******/ 				});
+/******/ 			});
+/******/ 		}
+/******/ 		
+/******/ 		function hotCheck(applyOnUpdate) {
+/******/ 			if (currentStatus !== "idle") {
+/******/ 				throw new Error("check() is only allowed in idle status");
+/******/ 			}
+/******/ 			return setStatus("check")
+/******/ 				.then(__webpack_require__.hmrM)
+/******/ 				.then(function (update) {
+/******/ 					if (!update) {
+/******/ 						return setStatus(applyInvalidatedModules() ? "ready" : "idle").then(
+/******/ 							function () {
+/******/ 								return null;
+/******/ 							}
+/******/ 						);
+/******/ 					}
+/******/ 		
+/******/ 					return setStatus("prepare").then(function () {
+/******/ 						var updatedModules = [];
+/******/ 						currentUpdateApplyHandlers = [];
+/******/ 		
+/******/ 						return Promise.all(
+/******/ 							Object.keys(__webpack_require__.hmrC).reduce(function (
+/******/ 								promises,
+/******/ 								key
+/******/ 							) {
+/******/ 								__webpack_require__.hmrC[key](
+/******/ 									update.c,
+/******/ 									update.r,
+/******/ 									update.m,
+/******/ 									promises,
+/******/ 									currentUpdateApplyHandlers,
+/******/ 									updatedModules
+/******/ 								);
+/******/ 								return promises;
+/******/ 							},
+/******/ 							[])
+/******/ 						).then(function () {
+/******/ 							return waitForBlockingPromises(function () {
+/******/ 								if (applyOnUpdate) {
+/******/ 									return internalApply(applyOnUpdate);
+/******/ 								} else {
+/******/ 									return setStatus("ready").then(function () {
+/******/ 										return updatedModules;
+/******/ 									});
+/******/ 								}
+/******/ 							});
+/******/ 						});
+/******/ 					});
+/******/ 				});
+/******/ 		}
+/******/ 		
+/******/ 		function hotApply(options) {
+/******/ 			if (currentStatus !== "ready") {
+/******/ 				return Promise.resolve().then(function () {
+/******/ 					throw new Error(
+/******/ 						"apply() is only allowed in ready status (state: " +
+/******/ 							currentStatus +
+/******/ 							")"
+/******/ 					);
+/******/ 				});
+/******/ 			}
+/******/ 			return internalApply(options);
+/******/ 		}
+/******/ 		
+/******/ 		function internalApply(options) {
+/******/ 			options = options || {};
+/******/ 		
+/******/ 			applyInvalidatedModules();
+/******/ 		
+/******/ 			var results = currentUpdateApplyHandlers.map(function (handler) {
+/******/ 				return handler(options);
+/******/ 			});
+/******/ 			currentUpdateApplyHandlers = undefined;
+/******/ 		
+/******/ 			var errors = results
+/******/ 				.map(function (r) {
+/******/ 					return r.error;
+/******/ 				})
+/******/ 				.filter(Boolean);
+/******/ 		
+/******/ 			if (errors.length > 0) {
+/******/ 				return setStatus("abort").then(function () {
+/******/ 					throw errors[0];
+/******/ 				});
+/******/ 			}
+/******/ 		
+/******/ 			// Now in "dispose" phase
+/******/ 			var disposePromise = setStatus("dispose");
+/******/ 		
+/******/ 			results.forEach(function (result) {
+/******/ 				if (result.dispose) result.dispose();
+/******/ 			});
+/******/ 		
+/******/ 			// Now in "apply" phase
+/******/ 			var applyPromise = setStatus("apply");
+/******/ 		
+/******/ 			var error;
+/******/ 			var reportError = function (err) {
+/******/ 				if (!error) error = err;
+/******/ 			};
+/******/ 		
+/******/ 			var outdatedModules = [];
+/******/ 			results.forEach(function (result) {
+/******/ 				if (result.apply) {
+/******/ 					var modules = result.apply(reportError);
+/******/ 					if (modules) {
+/******/ 						for (var i = 0; i < modules.length; i++) {
+/******/ 							outdatedModules.push(modules[i]);
+/******/ 						}
+/******/ 					}
+/******/ 				}
+/******/ 			});
+/******/ 		
+/******/ 			return Promise.all([disposePromise, applyPromise]).then(function () {
+/******/ 				// handle errors in accept handlers and self accepted module load
+/******/ 				if (error) {
+/******/ 					return setStatus("fail").then(function () {
+/******/ 						throw error;
+/******/ 					});
+/******/ 				}
+/******/ 		
+/******/ 				if (queuedInvalidatedModules) {
+/******/ 					return internalApply(options).then(function (list) {
+/******/ 						outdatedModules.forEach(function (moduleId) {
+/******/ 							if (list.indexOf(moduleId) < 0) list.push(moduleId);
+/******/ 						});
+/******/ 						return list;
+/******/ 					});
+/******/ 				}
+/******/ 		
+/******/ 				return setStatus("idle").then(function () {
+/******/ 					return outdatedModules;
+/******/ 				});
+/******/ 			});
+/******/ 		}
+/******/ 		
+/******/ 		function applyInvalidatedModules() {
+/******/ 			if (queuedInvalidatedModules) {
+/******/ 				if (!currentUpdateApplyHandlers) currentUpdateApplyHandlers = [];
+/******/ 				Object.keys(__webpack_require__.hmrI).forEach(function (key) {
+/******/ 					queuedInvalidatedModules.forEach(function (moduleId) {
+/******/ 						__webpack_require__.hmrI[key](
+/******/ 							moduleId,
+/******/ 							currentUpdateApplyHandlers
+/******/ 						);
+/******/ 					});
+/******/ 				});
+/******/ 				queuedInvalidatedModules = undefined;
+/******/ 				return true;
+/******/ 			}
+/******/ 		}
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		__webpack_require__.p = "/wp-content/themes/beaucoup/public/";
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		__webpack_require__.b = document.baseURI || self.location.href;
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = __webpack_require__.hmrS_jsonp = __webpack_require__.hmrS_jsonp || {
+/******/ 			"runtime": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		var currentUpdatedModulesList;
+/******/ 		var waitingUpdateResolves = {};
+/******/ 		function loadUpdateChunk(chunkId, updatedModulesList) {
+/******/ 			currentUpdatedModulesList = updatedModulesList;
+/******/ 			return new Promise((resolve, reject) => {
+/******/ 				waitingUpdateResolves[chunkId] = resolve;
+/******/ 				// start update chunk loading
+/******/ 				var url = __webpack_require__.p + __webpack_require__.hu(chunkId);
+/******/ 				// create error before stack unwound to get useful stacktrace later
+/******/ 				var error = new Error();
+/******/ 				var loadingEnded = (event) => {
+/******/ 					if(waitingUpdateResolves[chunkId]) {
+/******/ 						waitingUpdateResolves[chunkId] = undefined
+/******/ 						var errorType = event && (event.type === 'load' ? 'missing' : event.type);
+/******/ 						var realSrc = event && event.target && event.target.src;
+/******/ 						error.message = 'Loading hot update chunk ' + chunkId + ' failed.\n(' + errorType + ': ' + realSrc + ')';
+/******/ 						error.name = 'ChunkLoadError';
+/******/ 						error.type = errorType;
+/******/ 						error.request = realSrc;
+/******/ 						reject(error);
+/******/ 					}
+/******/ 				};
+/******/ 				__webpack_require__.l(url, loadingEnded);
+/******/ 			});
+/******/ 		}
+/******/ 		
+/******/ 		self["webpackHotUpdate_roots_bud_sage_sage"] = (chunkId, moreModules, runtime) => {
+/******/ 			for(var moduleId in moreModules) {
+/******/ 				if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 					currentUpdate[moduleId] = moreModules[moduleId];
+/******/ 					if(currentUpdatedModulesList) currentUpdatedModulesList.push(moduleId);
+/******/ 				}
+/******/ 			}
+/******/ 			if(runtime) currentUpdateRuntime.push(runtime);
+/******/ 			if(waitingUpdateResolves[chunkId]) {
+/******/ 				waitingUpdateResolves[chunkId]();
+/******/ 				waitingUpdateResolves[chunkId] = undefined;
+/******/ 			}
+/******/ 		};
+/******/ 		
+/******/ 		var currentUpdateChunks;
+/******/ 		var currentUpdate;
+/******/ 		var currentUpdateRemovedChunks;
+/******/ 		var currentUpdateRuntime;
+/******/ 		function applyHandler(options) {
+/******/ 			if (__webpack_require__.f) delete __webpack_require__.f.jsonpHmr;
+/******/ 			currentUpdateChunks = undefined;
+/******/ 			function getAffectedModuleEffects(updateModuleId) {
+/******/ 				var outdatedModules = [updateModuleId];
+/******/ 				var outdatedDependencies = {};
+/******/ 		
+/******/ 				var queue = outdatedModules.map(function (id) {
+/******/ 					return {
+/******/ 						chain: [id],
+/******/ 						id: id
+/******/ 					};
+/******/ 				});
+/******/ 				while (queue.length > 0) {
+/******/ 					var queueItem = queue.pop();
+/******/ 					var moduleId = queueItem.id;
+/******/ 					var chain = queueItem.chain;
+/******/ 					var module = __webpack_require__.c[moduleId];
+/******/ 					if (
+/******/ 						!module ||
+/******/ 						(module.hot._selfAccepted && !module.hot._selfInvalidated)
+/******/ 					)
+/******/ 						continue;
+/******/ 					if (module.hot._selfDeclined) {
+/******/ 						return {
+/******/ 							type: "self-declined",
+/******/ 							chain: chain,
+/******/ 							moduleId: moduleId
+/******/ 						};
+/******/ 					}
+/******/ 					if (module.hot._main) {
+/******/ 						return {
+/******/ 							type: "unaccepted",
+/******/ 							chain: chain,
+/******/ 							moduleId: moduleId
+/******/ 						};
+/******/ 					}
+/******/ 					for (var i = 0; i < module.parents.length; i++) {
+/******/ 						var parentId = module.parents[i];
+/******/ 						var parent = __webpack_require__.c[parentId];
+/******/ 						if (!parent) continue;
+/******/ 						if (parent.hot._declinedDependencies[moduleId]) {
+/******/ 							return {
+/******/ 								type: "declined",
+/******/ 								chain: chain.concat([parentId]),
+/******/ 								moduleId: moduleId,
+/******/ 								parentId: parentId
+/******/ 							};
+/******/ 						}
+/******/ 						if (outdatedModules.indexOf(parentId) !== -1) continue;
+/******/ 						if (parent.hot._acceptedDependencies[moduleId]) {
+/******/ 							if (!outdatedDependencies[parentId])
+/******/ 								outdatedDependencies[parentId] = [];
+/******/ 							addAllToSet(outdatedDependencies[parentId], [moduleId]);
+/******/ 							continue;
+/******/ 						}
+/******/ 						delete outdatedDependencies[parentId];
+/******/ 						outdatedModules.push(parentId);
+/******/ 						queue.push({
+/******/ 							chain: chain.concat([parentId]),
+/******/ 							id: parentId
+/******/ 						});
+/******/ 					}
+/******/ 				}
+/******/ 		
+/******/ 				return {
+/******/ 					type: "accepted",
+/******/ 					moduleId: updateModuleId,
+/******/ 					outdatedModules: outdatedModules,
+/******/ 					outdatedDependencies: outdatedDependencies
+/******/ 				};
+/******/ 			}
+/******/ 		
+/******/ 			function addAllToSet(a, b) {
+/******/ 				for (var i = 0; i < b.length; i++) {
+/******/ 					var item = b[i];
+/******/ 					if (a.indexOf(item) === -1) a.push(item);
+/******/ 				}
+/******/ 			}
+/******/ 		
+/******/ 			// at begin all updates modules are outdated
+/******/ 			// the "outdated" status can propagate to parents if they don't accept the children
+/******/ 			var outdatedDependencies = {};
+/******/ 			var outdatedModules = [];
+/******/ 			var appliedUpdate = {};
+/******/ 		
+/******/ 			var warnUnexpectedRequire = function warnUnexpectedRequire(module) {
+/******/ 				console.warn(
+/******/ 					"[HMR] unexpected require(" + module.id + ") to disposed module"
+/******/ 				);
+/******/ 			};
+/******/ 		
+/******/ 			for (var moduleId in currentUpdate) {
+/******/ 				if (__webpack_require__.o(currentUpdate, moduleId)) {
+/******/ 					var newModuleFactory = currentUpdate[moduleId];
+/******/ 					/** @type {TODO} */
+/******/ 					var result;
+/******/ 					if (newModuleFactory) {
+/******/ 						result = getAffectedModuleEffects(moduleId);
+/******/ 					} else {
+/******/ 						result = {
+/******/ 							type: "disposed",
+/******/ 							moduleId: moduleId
+/******/ 						};
+/******/ 					}
+/******/ 					/** @type {Error|false} */
+/******/ 					var abortError = false;
+/******/ 					var doApply = false;
+/******/ 					var doDispose = false;
+/******/ 					var chainInfo = "";
+/******/ 					if (result.chain) {
+/******/ 						chainInfo = "\nUpdate propagation: " + result.chain.join(" -> ");
+/******/ 					}
+/******/ 					switch (result.type) {
+/******/ 						case "self-declined":
+/******/ 							if (options.onDeclined) options.onDeclined(result);
+/******/ 							if (!options.ignoreDeclined)
+/******/ 								abortError = new Error(
+/******/ 									"Aborted because of self decline: " +
+/******/ 										result.moduleId +
+/******/ 										chainInfo
+/******/ 								);
+/******/ 							break;
+/******/ 						case "declined":
+/******/ 							if (options.onDeclined) options.onDeclined(result);
+/******/ 							if (!options.ignoreDeclined)
+/******/ 								abortError = new Error(
+/******/ 									"Aborted because of declined dependency: " +
+/******/ 										result.moduleId +
+/******/ 										" in " +
+/******/ 										result.parentId +
+/******/ 										chainInfo
+/******/ 								);
+/******/ 							break;
+/******/ 						case "unaccepted":
+/******/ 							if (options.onUnaccepted) options.onUnaccepted(result);
+/******/ 							if (!options.ignoreUnaccepted)
+/******/ 								abortError = new Error(
+/******/ 									"Aborted because " + moduleId + " is not accepted" + chainInfo
+/******/ 								);
+/******/ 							break;
+/******/ 						case "accepted":
+/******/ 							if (options.onAccepted) options.onAccepted(result);
+/******/ 							doApply = true;
+/******/ 							break;
+/******/ 						case "disposed":
+/******/ 							if (options.onDisposed) options.onDisposed(result);
+/******/ 							doDispose = true;
+/******/ 							break;
+/******/ 						default:
+/******/ 							throw new Error("Unexception type " + result.type);
+/******/ 					}
+/******/ 					if (abortError) {
+/******/ 						return {
+/******/ 							error: abortError
+/******/ 						};
+/******/ 					}
+/******/ 					if (doApply) {
+/******/ 						appliedUpdate[moduleId] = newModuleFactory;
+/******/ 						addAllToSet(outdatedModules, result.outdatedModules);
+/******/ 						for (moduleId in result.outdatedDependencies) {
+/******/ 							if (__webpack_require__.o(result.outdatedDependencies, moduleId)) {
+/******/ 								if (!outdatedDependencies[moduleId])
+/******/ 									outdatedDependencies[moduleId] = [];
+/******/ 								addAllToSet(
+/******/ 									outdatedDependencies[moduleId],
+/******/ 									result.outdatedDependencies[moduleId]
+/******/ 								);
+/******/ 							}
+/******/ 						}
+/******/ 					}
+/******/ 					if (doDispose) {
+/******/ 						addAllToSet(outdatedModules, [result.moduleId]);
+/******/ 						appliedUpdate[moduleId] = warnUnexpectedRequire;
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 			currentUpdate = undefined;
+/******/ 		
+/******/ 			// Store self accepted outdated modules to require them later by the module system
+/******/ 			var outdatedSelfAcceptedModules = [];
+/******/ 			for (var j = 0; j < outdatedModules.length; j++) {
+/******/ 				var outdatedModuleId = outdatedModules[j];
+/******/ 				var module = __webpack_require__.c[outdatedModuleId];
+/******/ 				if (
+/******/ 					module &&
+/******/ 					(module.hot._selfAccepted || module.hot._main) &&
+/******/ 					// removed self-accepted modules should not be required
+/******/ 					appliedUpdate[outdatedModuleId] !== warnUnexpectedRequire &&
+/******/ 					// when called invalidate self-accepting is not possible
+/******/ 					!module.hot._selfInvalidated
+/******/ 				) {
+/******/ 					outdatedSelfAcceptedModules.push({
+/******/ 						module: outdatedModuleId,
+/******/ 						require: module.hot._requireSelf,
+/******/ 						errorHandler: module.hot._selfAccepted
+/******/ 					});
+/******/ 				}
+/******/ 			}
+/******/ 		
+/******/ 			var moduleOutdatedDependencies;
+/******/ 		
+/******/ 			return {
+/******/ 				dispose: function () {
+/******/ 					currentUpdateRemovedChunks.forEach(function (chunkId) {
+/******/ 						delete installedChunks[chunkId];
+/******/ 					});
+/******/ 					currentUpdateRemovedChunks = undefined;
+/******/ 		
+/******/ 					var idx;
+/******/ 					var queue = outdatedModules.slice();
+/******/ 					while (queue.length > 0) {
+/******/ 						var moduleId = queue.pop();
+/******/ 						var module = __webpack_require__.c[moduleId];
+/******/ 						if (!module) continue;
+/******/ 		
+/******/ 						var data = {};
+/******/ 		
+/******/ 						// Call dispose handlers
+/******/ 						var disposeHandlers = module.hot._disposeHandlers;
+/******/ 						for (j = 0; j < disposeHandlers.length; j++) {
+/******/ 							disposeHandlers[j].call(null, data);
+/******/ 						}
+/******/ 						__webpack_require__.hmrD[moduleId] = data;
+/******/ 		
+/******/ 						// disable module (this disables requires from this module)
+/******/ 						module.hot.active = false;
+/******/ 		
+/******/ 						// remove module from cache
+/******/ 						delete __webpack_require__.c[moduleId];
+/******/ 		
+/******/ 						// when disposing there is no need to call dispose handler
+/******/ 						delete outdatedDependencies[moduleId];
+/******/ 		
+/******/ 						// remove "parents" references from all children
+/******/ 						for (j = 0; j < module.children.length; j++) {
+/******/ 							var child = __webpack_require__.c[module.children[j]];
+/******/ 							if (!child) continue;
+/******/ 							idx = child.parents.indexOf(moduleId);
+/******/ 							if (idx >= 0) {
+/******/ 								child.parents.splice(idx, 1);
+/******/ 							}
+/******/ 						}
+/******/ 					}
+/******/ 		
+/******/ 					// remove outdated dependency from module children
+/******/ 					var dependency;
+/******/ 					for (var outdatedModuleId in outdatedDependencies) {
+/******/ 						if (__webpack_require__.o(outdatedDependencies, outdatedModuleId)) {
+/******/ 							module = __webpack_require__.c[outdatedModuleId];
+/******/ 							if (module) {
+/******/ 								moduleOutdatedDependencies =
+/******/ 									outdatedDependencies[outdatedModuleId];
+/******/ 								for (j = 0; j < moduleOutdatedDependencies.length; j++) {
+/******/ 									dependency = moduleOutdatedDependencies[j];
+/******/ 									idx = module.children.indexOf(dependency);
+/******/ 									if (idx >= 0) module.children.splice(idx, 1);
+/******/ 								}
+/******/ 							}
+/******/ 						}
+/******/ 					}
+/******/ 				},
+/******/ 				apply: function (reportError) {
+/******/ 					// insert new code
+/******/ 					for (var updateModuleId in appliedUpdate) {
+/******/ 						if (__webpack_require__.o(appliedUpdate, updateModuleId)) {
+/******/ 							__webpack_require__.m[updateModuleId] = appliedUpdate[updateModuleId];
+/******/ 						}
+/******/ 					}
+/******/ 		
+/******/ 					// run new runtime modules
+/******/ 					for (var i = 0; i < currentUpdateRuntime.length; i++) {
+/******/ 						currentUpdateRuntime[i](__webpack_require__);
+/******/ 					}
+/******/ 		
+/******/ 					// call accept handlers
+/******/ 					for (var outdatedModuleId in outdatedDependencies) {
+/******/ 						if (__webpack_require__.o(outdatedDependencies, outdatedModuleId)) {
+/******/ 							var module = __webpack_require__.c[outdatedModuleId];
+/******/ 							if (module) {
+/******/ 								moduleOutdatedDependencies =
+/******/ 									outdatedDependencies[outdatedModuleId];
+/******/ 								var callbacks = [];
+/******/ 								var errorHandlers = [];
+/******/ 								var dependenciesForCallbacks = [];
+/******/ 								for (var j = 0; j < moduleOutdatedDependencies.length; j++) {
+/******/ 									var dependency = moduleOutdatedDependencies[j];
+/******/ 									var acceptCallback =
+/******/ 										module.hot._acceptedDependencies[dependency];
+/******/ 									var errorHandler =
+/******/ 										module.hot._acceptedErrorHandlers[dependency];
+/******/ 									if (acceptCallback) {
+/******/ 										if (callbacks.indexOf(acceptCallback) !== -1) continue;
+/******/ 										callbacks.push(acceptCallback);
+/******/ 										errorHandlers.push(errorHandler);
+/******/ 										dependenciesForCallbacks.push(dependency);
+/******/ 									}
+/******/ 								}
+/******/ 								for (var k = 0; k < callbacks.length; k++) {
+/******/ 									try {
+/******/ 										callbacks[k].call(null, moduleOutdatedDependencies);
+/******/ 									} catch (err) {
+/******/ 										if (typeof errorHandlers[k] === "function") {
+/******/ 											try {
+/******/ 												errorHandlers[k](err, {
+/******/ 													moduleId: outdatedModuleId,
+/******/ 													dependencyId: dependenciesForCallbacks[k]
+/******/ 												});
+/******/ 											} catch (err2) {
+/******/ 												if (options.onErrored) {
+/******/ 													options.onErrored({
+/******/ 														type: "accept-error-handler-errored",
+/******/ 														moduleId: outdatedModuleId,
+/******/ 														dependencyId: dependenciesForCallbacks[k],
+/******/ 														error: err2,
+/******/ 														originalError: err
+/******/ 													});
+/******/ 												}
+/******/ 												if (!options.ignoreErrored) {
+/******/ 													reportError(err2);
+/******/ 													reportError(err);
+/******/ 												}
+/******/ 											}
+/******/ 										} else {
+/******/ 											if (options.onErrored) {
+/******/ 												options.onErrored({
+/******/ 													type: "accept-errored",
+/******/ 													moduleId: outdatedModuleId,
+/******/ 													dependencyId: dependenciesForCallbacks[k],
+/******/ 													error: err
+/******/ 												});
+/******/ 											}
+/******/ 											if (!options.ignoreErrored) {
+/******/ 												reportError(err);
+/******/ 											}
+/******/ 										}
+/******/ 									}
+/******/ 								}
+/******/ 							}
+/******/ 						}
+/******/ 					}
+/******/ 		
+/******/ 					// Load self accepted modules
+/******/ 					for (var o = 0; o < outdatedSelfAcceptedModules.length; o++) {
+/******/ 						var item = outdatedSelfAcceptedModules[o];
+/******/ 						var moduleId = item.module;
+/******/ 						try {
+/******/ 							item.require(moduleId);
+/******/ 						} catch (err) {
+/******/ 							if (typeof item.errorHandler === "function") {
+/******/ 								try {
+/******/ 									item.errorHandler(err, {
+/******/ 										moduleId: moduleId,
+/******/ 										module: __webpack_require__.c[moduleId]
+/******/ 									});
+/******/ 								} catch (err2) {
+/******/ 									if (options.onErrored) {
+/******/ 										options.onErrored({
+/******/ 											type: "self-accept-error-handler-errored",
+/******/ 											moduleId: moduleId,
+/******/ 											error: err2,
+/******/ 											originalError: err
+/******/ 										});
+/******/ 									}
+/******/ 									if (!options.ignoreErrored) {
+/******/ 										reportError(err2);
+/******/ 										reportError(err);
+/******/ 									}
+/******/ 								}
+/******/ 							} else {
+/******/ 								if (options.onErrored) {
+/******/ 									options.onErrored({
+/******/ 										type: "self-accept-errored",
+/******/ 										moduleId: moduleId,
+/******/ 										error: err
+/******/ 									});
+/******/ 								}
+/******/ 								if (!options.ignoreErrored) {
+/******/ 									reportError(err);
+/******/ 								}
+/******/ 							}
+/******/ 						}
+/******/ 					}
+/******/ 		
+/******/ 					return outdatedModules;
+/******/ 				}
+/******/ 			};
+/******/ 		}
+/******/ 		__webpack_require__.hmrI.jsonp = function (moduleId, applyHandlers) {
+/******/ 			if (!currentUpdate) {
+/******/ 				currentUpdate = {};
+/******/ 				currentUpdateRuntime = [];
+/******/ 				currentUpdateRemovedChunks = [];
+/******/ 				applyHandlers.push(applyHandler);
+/******/ 			}
+/******/ 			if (!__webpack_require__.o(currentUpdate, moduleId)) {
+/******/ 				currentUpdate[moduleId] = __webpack_require__.m[moduleId];
+/******/ 			}
+/******/ 		};
+/******/ 		__webpack_require__.hmrC.jsonp = function (
+/******/ 			chunkIds,
+/******/ 			removedChunks,
+/******/ 			removedModules,
+/******/ 			promises,
+/******/ 			applyHandlers,
+/******/ 			updatedModulesList
+/******/ 		) {
+/******/ 			applyHandlers.push(applyHandler);
+/******/ 			currentUpdateChunks = {};
+/******/ 			currentUpdateRemovedChunks = removedChunks;
+/******/ 			currentUpdate = removedModules.reduce(function (obj, key) {
+/******/ 				obj[key] = false;
+/******/ 				return obj;
+/******/ 			}, {});
+/******/ 			currentUpdateRuntime = [];
+/******/ 			chunkIds.forEach(function (chunkId) {
+/******/ 				if (
+/******/ 					__webpack_require__.o(installedChunks, chunkId) &&
+/******/ 					installedChunks[chunkId] !== undefined
+/******/ 				) {
+/******/ 					promises.push(loadUpdateChunk(chunkId, updatedModulesList));
+/******/ 					currentUpdateChunks[chunkId] = true;
+/******/ 				} else {
+/******/ 					currentUpdateChunks[chunkId] = false;
+/******/ 				}
+/******/ 			});
+/******/ 			if (__webpack_require__.f) {
+/******/ 				__webpack_require__.f.jsonpHmr = function (chunkId, promises) {
+/******/ 					if (
+/******/ 						currentUpdateChunks &&
+/******/ 						__webpack_require__.o(currentUpdateChunks, chunkId) &&
+/******/ 						!currentUpdateChunks[chunkId]
+/******/ 					) {
+/******/ 						promises.push(loadUpdateChunk(chunkId));
+/******/ 						currentUpdateChunks[chunkId] = true;
+/******/ 					}
+/******/ 				};
+/******/ 			}
+/******/ 		};
+/******/ 		
+/******/ 		__webpack_require__.hmrM = () => {
+/******/ 			if (typeof fetch === "undefined") throw new Error("No browser support: need fetch API");
+/******/ 			return fetch(__webpack_require__.p + __webpack_require__.hmrF()).then((response) => {
+/******/ 				if(response.status === 404) return; // no update available
+/******/ 				if(!response.ok) throw new Error("Failed to fetch update manifest " + response.statusText);
+/******/ 				return response.json();
+/******/ 			});
+/******/ 		};
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var chunkIds = data[0];
+/******/ 			var moreModules = data[1];
+/******/ 			var runtime = data[2];
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk_roots_bud_sage_sage"] = self["webpackChunk_roots_bud_sage_sage"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// module cache are used so entry inlining is disabled
+/******/ 	
+/******/ })()
+;
+//# sourceMappingURL=runtime.js.map
+</script>
+<script src="https://www.caeli-energie.com/wp-content/themes/beaucoup/public/js/app.js" id="app/0-js"></script>
+<script>
+(function() {
+				var expirationDate = new Date();
+				expirationDate.setTime( expirationDate.getTime() + 31536000 * 1000 );
+				document.cookie = "pll_language=en; expires=" + expirationDate.toUTCString() + "; path=/; secure; SameSite=Lax";
+			}());
 
-      <div class="footer-bottom">
-        <div class="footer-social" aria-label="Social links">
-          <a href="#twitter">Twitter</a>
-          <a href="#youtube">Youtube</a>
-          <a href="#linkedin">LinkedIn</a>
-        </div>
-        <div class="footer-legal">
-          <a href="#credits">Credits</a>
-          <a href="#legal">Legal</a>
-          <a href="#cookies">Cookies</a>
-        </div>
+</script>
       </div>
     </div>
-    <div class="footer-hero-word" aria-hidden="true">ORDA RIDES</div>
-  </footer>
-
-  <!-- GSAP for scroll animations -->
-  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="tryout.js"></script>
-  <script>
-    (function() {
-      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      function fadeIn(){ requestAnimationFrame(function(){ document.body.style.opacity = '1'; }); }
-      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', fadeIn); } else { fadeIn(); }
-      document.addEventListener('click', function(e){
-        var a = e.target.closest('a');
-        if (!a) return;
-        var href = a.getAttribute('href');
-        if (!href) return;
-        var url = new URL(href, location.href);
-        if (url.origin !== location.origin) return;
-        if (a.target && a.target !== '_self') return;
-        if (url.hash && url.pathname === location.pathname) return; // same-page anchor
-        e.preventDefault();
-        if (!reduce) {
-          document.body.style.opacity = '0';
-          setTimeout(function(){ location.href = url.href; }, 320);
-        } else {
-          location.href = url.href;
+    
+    <script>
+      // Motorcycle animation trigger
+      document.addEventListener('DOMContentLoaded', function() {
+        const motorcycle = document.getElementById('hero-motorcycle');
+        const plantSection = document.querySelector('.home-cover__plant');
+        
+        if (motorcycle && plantSection) {
+          // Create an intersection observer to detect when plant section comes into view
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // Start motorcycle animation when plant section is visible
+                motorcycle.classList.remove('paused');
+              } else {
+                // Pause animation when plant section is not visible
+                motorcycle.classList.add('paused');
+              }
+            });
+          }, {
+            threshold: 0.3, // Trigger when 30% of the plant section is visible
+            rootMargin: '0px 0px -20% 0px' // Start animation a bit before reaching the section
+          });
+          
+          // Start observing the plant section
+          observer.observe(plantSection);
         }
-      }, true);
-    })();
-  </script>
-</body>
+      });
+    </script>
+  </body>
 </html>
+
+<!--
+Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
+
+Page Caching using Disk: Enhanced 
+
+Served from: www.caeli-energie.com @ 2025-08-05 15:10:33 by W3 Total Cache
+-->
